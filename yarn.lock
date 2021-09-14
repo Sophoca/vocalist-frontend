@@ -805,14 +805,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-transform-react-jsx-development@^7.12.1":
-  "integrity" "sha512-BPjYV86SVuOaudFhsJR1zjgxxOhJDt6JHNoD48DxWEIxUCAMjV1ys6DYw4SDYZh0b1QsS2vfIA9t/ZsQGsDOUQ=="
-  "resolved" "https://registry.npmjs.org/@babel/plugin-transform-react-jsx-development/-/plugin-transform-react-jsx-development-7.12.17.tgz"
-  "version" "7.12.17"
-  dependencies:
-    "@babel/plugin-transform-react-jsx" "^7.12.17"
-
-"@babel/plugin-transform-react-jsx-development@^7.12.12":
+"@babel/plugin-transform-react-jsx-development@^7.12.1", "@babel/plugin-transform-react-jsx-development@^7.12.12":
   "integrity" "sha512-BPjYV86SVuOaudFhsJR1zjgxxOhJDt6JHNoD48DxWEIxUCAMjV1ys6DYw4SDYZh0b1QsS2vfIA9t/ZsQGsDOUQ=="
   "resolved" "https://registry.npmjs.org/@babel/plugin-transform-react-jsx-development/-/plugin-transform-react-jsx-development-7.12.17.tgz"
   "version" "7.12.17"
@@ -2605,6 +2598,13 @@
   "resolved" "https://registry.npmjs.org/axe-core/-/axe-core-4.1.2.tgz"
   "version" "4.1.2"
 
+"axios@^0.21.4":
+  "integrity" "sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.4.tgz"
+  "version" "0.21.4"
+  dependencies:
+    "follow-redirects" "^1.14.0"
+
 "axobject-query@^2.2.0":
   "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
   "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
@@ -2629,21 +2629,7 @@
   dependencies:
     "babylon" "^6.18.0"
 
-"babel-jest@^26.6.0":
-  "integrity" "sha512-pl4Q+GAVOHwvjrck6jKjvmGhnO3jHX/xuB9d27f+EJZ/6k+6nMuPjorrYp7s++bKKdANwzElBWnLWaObvTnaZA=="
-  "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-26.6.3.tgz"
-  "version" "26.6.3"
-  dependencies:
-    "@jest/transform" "^26.6.2"
-    "@jest/types" "^26.6.2"
-    "@types/babel__core" "^7.1.7"
-    "babel-plugin-istanbul" "^6.0.0"
-    "babel-preset-jest" "^26.6.2"
-    "chalk" "^4.0.0"
-    "graceful-fs" "^4.2.4"
-    "slash" "^3.0.0"
-
-"babel-jest@^26.6.3":
+"babel-jest@^26.6.0", "babel-jest@^26.6.3":
   "integrity" "sha512-pl4Q+GAVOHwvjrck6jKjvmGhnO3jHX/xuB9d27f+EJZ/6k+6nMuPjorrYp7s++bKKdANwzElBWnLWaObvTnaZA=="
   "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-26.6.3.tgz"
   "version" "26.6.3"
@@ -4054,6 +4040,13 @@
   dependencies:
     "ms" "2.0.0"
 
+"debug@^2.6.6":
+  "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
+  "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
+  "version" "2.6.9"
+  dependencies:
+    "ms" "2.0.0"
+
 "debug@^2.6.9":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
   "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
@@ -4367,7 +4360,7 @@
   "resolved" "https://registry.npmjs.org/dotenv-expand/-/dotenv-expand-5.1.0.tgz"
   "version" "5.1.0"
 
-"dotenv@8.2.0":
+"dotenv@^8.2.0", "dotenv@8.2.0":
   "integrity" "sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw=="
   "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-8.2.0.tgz"
   "version" "8.2.0"
@@ -5052,7 +5045,7 @@
   "resolved" "https://registry.npmjs.org/extsprintf/-/extsprintf-1.3.0.tgz"
   "version" "1.3.0"
 
-"fast-deep-equal@^3.1.1":
+"fast-deep-equal@^3.1.1", "fast-deep-equal@3.1.3":
   "integrity" "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   "version" "3.1.3"
@@ -5233,10 +5226,10 @@
     "inherits" "^2.0.3"
     "readable-stream" "^2.3.6"
 
-"follow-redirects@^1.0.0":
-  "integrity" "sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA=="
-  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.2.tgz"
-  "version" "1.13.2"
+"follow-redirects@^1.0.0", "follow-redirects@^1.14.0":
+  "integrity" "sha512-3MkHxknWMUtb23apkgz/83fDoe+y+qr0TdgacGIA7bew+QLBo3vdgEN2xEsuXNivpFy4CyDhBBZnNZOtalmenw=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.3.tgz"
+  "version" "1.14.3"
 
 "for-in@^1.0.2":
   "integrity" "sha1-gQaNKVqBQuwKxybG4iAMMPttXoA="
@@ -6645,19 +6638,7 @@
     "jest-regex-util" "^26.0.0"
     "jest-snapshot" "^26.6.2"
 
-"jest-resolve@*":
-  "version" "26.6.0"
-  dependencies:
-    "@jest/types" "^26.6.0"
-    "chalk" "^4.0.0"
-    "graceful-fs" "^4.2.4"
-    "jest-pnp-resolver" "^1.2.2"
-    "jest-util" "^26.6.0"
-    "read-pkg-up" "^7.0.1"
-    "resolve" "^1.17.0"
-    "slash" "^3.0.0"
-
-"jest-resolve@^26.6.2":
+"jest-resolve@*", "jest-resolve@^26.6.2":
   "integrity" "sha512-sOxsZOq25mT1wRsfHcbtkInS+Ek7Q8jCHUB0ZUTP0tc/c41QHriU/NunqMfCUWsL4H3MHpvQD4QR9kSYhS7UvQ=="
   "resolved" "https://registry.npmjs.org/jest-resolve/-/jest-resolve-26.6.2.tgz"
   "version" "26.6.2"
@@ -7097,6 +7078,11 @@
     "parse-json" "^2.2.0"
     "pify" "^2.0.0"
     "strip-bom" "^3.0.0"
+
+"load-script@^1.0.0":
+  "integrity" "sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ="
+  "resolved" "https://registry.npmjs.org/load-script/-/load-script-1.0.0.tgz"
+  "version" "1.0.0"
 
 "loader-runner@^2.4.0":
   "integrity" "sha512-Jsmr89RcXGIwivFY21FcRrisYZfvLMTWx5kOLc+JTxtpBOG6xML0vzbc6SEQG2FO9/4Fc3wW4LVcB5DmGflaRw=="
@@ -9097,7 +9083,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.6.0", "prop-types@^15.7.2":
+"prop-types@^15.6.0", "prop-types@^15.7.2", "prop-types@15.7.2":
   "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -9273,6 +9259,11 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
+"react-apple-signin-auth@^1.0.4":
+  "integrity" "sha512-oR0gPCc1FXRm5C/KyvskJsefeZeCGCVe6tcthvkmGWJOOT/G7oZ2P89qe+5Y4w2qTIzN/ZsWqyz3S4yh6/gssA=="
+  "resolved" "https://registry.npmjs.org/react-apple-signin-auth/-/react-apple-signin-auth-1.0.4.tgz"
+  "version" "1.0.4"
+
 "react-dev-utils@^11.0.3":
   "integrity" "sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.4.tgz"
@@ -9303,7 +9294,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@*", "react-dom@^16 || ^17", "react-dom@^17.0.2":
+"react-dom@*", "react-dom@^16 || ^17", "react-dom@^17.0.2", "react-dom@>= 16.8.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -9406,7 +9397,16 @@
   optionalDependencies:
     "fsevents" "^2.1.3"
 
-"react@*", "react@^16 || ^17", "react@^17.0.2", "react@>= 16", "react@17.0.2":
+"react-youtube@^7.13.1":
+  "integrity" "sha512-b++TLHmHDpd0ZBS1wcbYabbuchU+W4jtx5A2MUQX0BINNKKsaIQX29sn/aLvZ9v5luwAoceia3VGtyz9blaB9w=="
+  "resolved" "https://registry.npmjs.org/react-youtube/-/react-youtube-7.13.1.tgz"
+  "version" "7.13.1"
+  dependencies:
+    "fast-deep-equal" "3.1.3"
+    "prop-types" "15.7.2"
+    "youtube-player" "5.5.2"
+
+"react@*", "react@^16 || ^17", "react@^17.0.2", "react@>= 16", "react@>= 16.8.0", "react@>=0.14.1", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -10202,6 +10202,11 @@
   "version" "0.2.2"
   dependencies:
     "is-arrayish" "^0.3.1"
+
+"sister@^3.0.0":
+  "integrity" "sha512-p19rtTs+NksBRKW9qn0UhZ8/TUI9BPw9lmtHny+Y3TinWlOa9jWh9xB0AtPSdmOy49NJJJSSe0Ey4C7h0TrcYA=="
+  "resolved" "https://registry.npmjs.org/sister/-/sister-3.0.2.tgz"
+  "version" "3.0.2"
 
 "sisteransi@^1.0.5":
   "integrity" "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="
@@ -11880,3 +11885,12 @@
   "integrity" "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
+
+"youtube-player@5.5.2":
+  "integrity" "sha512-ZGtsemSpXnDky2AUYWgxjaopgB+shFHgXVpiJFeNB5nWEugpW1KWYDaHKuLqh2b67r24GtP6HoSW5swvf0fFIQ=="
+  "resolved" "https://registry.npmjs.org/youtube-player/-/youtube-player-5.5.2.tgz"
+  "version" "5.5.2"
+  dependencies:
+    "debug" "^2.6.6"
+    "load-script" "^1.0.0"
+    "sister" "^3.0.0"
