@@ -2598,7 +2598,7 @@
   "resolved" "https://registry.npmjs.org/axe-core/-/axe-core-4.1.2.tgz"
   "version" "4.1.2"
 
-"axios@^0.21.4":
+"axios@^0.21.1", "axios@^0.21.4":
   "integrity" "sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg=="
   "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.4.tgz"
   "version" "0.21.4"
@@ -9943,6 +9943,11 @@
   "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
   "version" "1.2.4"
 
+"sax@0.5.x":
+  "integrity" "sha1-1HLbIo6zMcJQaw6MFVJK25OdEsE="
+  "resolved" "https://registry.npmjs.org/sax/-/sax-0.5.8.tgz"
+  "version" "0.5.8"
+
 "saxes@^5.0.0":
   "integrity" "sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw=="
   "resolved" "https://registry.npmjs.org/saxes/-/saxes-5.0.1.tgz"
@@ -11802,6 +11807,13 @@
   "resolved" "https://registry.npmjs.org/xml-name-validator/-/xml-name-validator-3.0.0.tgz"
   "version" "3.0.0"
 
+"xml2js@~0.2.8":
+  "integrity" "sha1-m4FpCTFjH/CdGVdUn69U9PmAs8I="
+  "resolved" "https://registry.npmjs.org/xml2js/-/xml2js-0.2.8.tgz"
+  "version" "0.2.8"
+  dependencies:
+    "sax" "0.5.x"
+
 "xmlchars@^2.2.0":
   "integrity" "sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw=="
   "resolved" "https://registry.npmjs.org/xmlchars/-/xmlchars-2.2.0.tgz"
@@ -11894,3 +11906,11 @@
     "debug" "^2.6.6"
     "load-script" "^1.0.0"
     "sister" "^3.0.0"
+
+"youtube-search@^1.1.6":
+  "integrity" "sha512-AgDClD3KTJph0oA3QNypUpZH8qUJM2hevQAzIbpQ+gEYaqdIKUgBqhfciZ7ureOH+NSK7X9gYDo2tbvE46n7UA=="
+  "resolved" "https://registry.npmjs.org/youtube-search/-/youtube-search-1.1.6.tgz"
+  "version" "1.1.6"
+  dependencies:
+    "axios" "^0.21.1"
+    "xml2js" "~0.2.8"

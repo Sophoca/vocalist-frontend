@@ -14,7 +14,8 @@
     "react-google-login": "^5.2.2",
     "react-scripts": "4.0.3",
     "react-youtube": "^7.13.1",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "youtube-search": "^1.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
