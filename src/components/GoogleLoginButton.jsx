@@ -11,7 +11,6 @@ export default function GoogleLoginButton() {
   console.log(Google_Key);
   return (
     <>
-      <h2>Test google login</h2>
       <GoogleLogin
         clientId={Google_Key}
         buttonText="Login"
