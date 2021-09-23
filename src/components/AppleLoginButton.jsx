@@ -1,6 +1,5 @@
 import AppleSignin from 'react-apple-signin-auth';
 import { AppleLoginButton } from 'react-social-login-buttons';
-import AppleLogin from 'react-apple-login';
 require('dotenv').config();
 
 /** Apple Signin button */
@@ -38,22 +37,5 @@ export default function MyAppleLoginButton() {
         />
       )}
     />
-    // <AppleLogin
-    //   clientId="kr.co.vloom.web"
-    //   redirectURI="https://vloom.co.kr/appleLoginCallBack"
-    //   usePopup={false}
-    //   render={renderProps => (
-    //     <AppleLoginButton
-    //       onClick={renderProps.onClick}
-    //       style={{
-    //         display: 'flex',
-    //         justifyContent: 'space-around',
-    //         width: 300,
-    //         fontSize: 18,
-    //         fontFamily: 'Arial'
-    //       }}
-    //     />
-    //   )}
-    // />
   );
 }
