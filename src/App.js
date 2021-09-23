@@ -1,5 +1,6 @@
 import './App.css';
 import GoogleLoginButton from './components/GoogleLoginButton';
+import AppleLoginButton from './components/AppleLoginButton';
 import YoutubeSearch from './components/YoutubeSearch';
 
 function App() {
@@ -7,8 +8,11 @@ function App() {
 
   return (
     <div style={{ padding: 10 }}>
+      {/* <div style={{ display: 'flex', gap: 10 }}></div> */}
       <h2>Test google login</h2>
       <GoogleLoginButton></GoogleLoginButton>
+      <h2>Test apple login</h2>
+      <AppleLoginButton></AppleLoginButton>
       <h2>Test youtube API</h2>
       <div style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
         {music_lists.map((el, idx) => (
