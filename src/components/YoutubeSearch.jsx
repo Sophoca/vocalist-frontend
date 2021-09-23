@@ -15,7 +15,6 @@ async function getYoutubeID({ keyword }) {
     type: 'video'
   };
   const response = await axios.get('/search', { params });
-  console.log('function', response);
   return response.data;
 }
 
