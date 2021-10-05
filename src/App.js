@@ -1,11 +1,12 @@
 import './App.css';
+import firebase from './firebase';
 import GoogleLoginButton from './components/GoogleLoginButton';
 import AppleLoginButton from './components/AppleLoginButton';
 import YoutubeSearch from './components/YoutubeSearch';
 
 function App() {
   const music_lists = ['next level', '신호등'];
-
+  console.log(firebase);
   return (
     <div style={{ padding: 10 }}>
       <h1>VLOOM</h1>

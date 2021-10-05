@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
     "dotenv": "^8.2.0",
+    "firebase": "^9.1.1",
     "react": "^17.0.2",
     "react-apple-signin-auth": "^1.0.4",
     "react-async": "^10.0.1",
