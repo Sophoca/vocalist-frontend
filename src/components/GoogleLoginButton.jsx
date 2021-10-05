@@ -1,6 +1,7 @@
 import GoogleLogin from 'react-google-login';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import { LoginApi } from '../api';
+import axios from 'axios';
 require('dotenv').config();
 
 const Google_Key = process.env.REACT_APP_GOOGLE_KEY;
@@ -18,6 +19,7 @@ export default function MyGoogleLoginButton() {
     } catch (err) {
       console.log(err);
     }
+
     // LoginApi.isExist(response.profileObj.email, 'google').then(response2 => {
     //   console.log(response2);
     //   const exist = response2.data;
@@ -29,11 +31,22 @@ export default function MyGoogleLoginButton() {
     // });
   };
 
+  const GoogleApi = response => {
+    console.log(response);
+    axios
+      .get('https://www.googleapis.com/oauth2/v3/tokeninfo', {
+        params: {
+          id_token: response.tokenId
+        }
+      })
+      .then(response => console.log(response));
+  };
+
   return (
     <>
       <GoogleLogin
         clientId={Google_Key}
-        onSuccess={responseGoogle}
+        onSuccess={GoogleApi}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         render={renderProps => (
