@@ -7,29 +7,29 @@ require('dotenv').config();
 const Google_Key = process.env.REACT_APP_GOOGLE_KEY;
 
 export default function MyGoogleLoginButton() {
-  const responseGoogle = async response => {
-    console.log('response', response);
-    try {
-      const response2 = await LoginApi.isExist(response.profileObj.email, 'google');
-      console.log('response2', response2);
-      const response3 = response2.data.body.exist
-        ? true
-        : await LoginApi.createAccount(response.profileObj, 'google');
-      console.log('response3', response3);
-    } catch (err) {
-      console.log(err);
-    }
+  // const responseGoogle = async response => {
+  //   console.log('response', response);
+  //   try {
+  //     const response2 = await LoginApi.isExist(response.profileObj.email, 'google');
+  //     console.log('response2', response2);
+  //     const response3 = response2.data.body.exist
+  //       ? true
+  //       : await LoginApi.createAccount(response.profileObj, 'google');
+  //     console.log('response3', response3);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
 
-    // LoginApi.isExist(response.profileObj.email, 'google').then(response2 => {
-    //   console.log(response2);
-    //   const exist = response2.data;
+  //   // LoginApi.isExist(response.profileObj.email, 'google').then(response2 => {
+  //   //   console.log(response2);
+  //   //   const exist = response2.data;
 
-    //   if (!exist)
-    //     return LoginApi.createAccount(response.profileObj, 'google').then(response3 =>
-    //       console.log(response3)
-    //     );
-    // });
-  };
+  //   //   if (!exist)
+  //   //     return LoginApi.createAccount(response.profileObj, 'google').then(response3 =>
+  //   //       console.log(response3)
+  //   //     );
+  //   // });
+  // };
 
   const GoogleApi = response => {
     console.log(response);
