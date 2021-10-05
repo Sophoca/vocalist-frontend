@@ -5,11 +5,17 @@ const api = axios.create({
 });
 
 export const LoginApi = {
-  isExsit: (email, type) =>
+  isExist: (email, type) =>
     api.get('/login', {
       params: {
         email: email,
         type: type
       }
+    }),
+  createAccount: (response, type) =>
+    api.post('/login', {
+      email: response.email,
+      name: response.name,
+      type: type
     })
 };

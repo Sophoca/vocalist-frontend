@@ -1,3 +1,4 @@
+import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import { LoginApi } from '../api';
@@ -7,7 +8,16 @@ const Google_Key = process.env.REACT_APP_GOOGLE_KEY;
 
 export default function MyGoogleLoginButton() {
   const responseGoogle = response => {
-    LoginApi.isExsit(response.profileObj, 'google');
+    console.log(response);
+    LoginApi.isExist(response.profileObj.email, 'google').then(response2 => {
+      console.log(response2);
+      const exist = response2.data;
+
+      if (!exist)
+        return LoginApi.createAccount(response.profileObj, 'google').then(response3 =>
+          console.log(response3)
+        );
+    });
   };
 
   return (
