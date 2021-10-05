@@ -47,7 +47,7 @@ export default function MyGoogleLoginButton() {
       <GoogleLogin
         clientId={Google_Key}
         onSuccess={GoogleApi}
-        onFailure={responseGoogle}
+        onFailure={console.log('fail')}
         cookiePolicy={'single_host_origin'}
         render={renderProps => (
           <GoogleLoginButton
