@@ -17,5 +17,11 @@ export const LoginApi = {
       email: response.email,
       name: response.name,
       type: type
+    }),
+  GoogleApi: response =>
+    axios.get('https://www.googleapis.com/oauth2/v3/tokeninfo', {
+      params: {
+        id_token: response.tokenId
+      }
     })
 };
