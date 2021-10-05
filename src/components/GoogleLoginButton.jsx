@@ -1,12 +1,13 @@
 import GoogleLogin from 'react-google-login';
 import { GoogleLoginButton } from 'react-social-login-buttons';
+import { LoginApi } from '../api';
 require('dotenv').config();
 
 const Google_Key = process.env.REACT_APP_GOOGLE_KEY;
 
 export default function MyGoogleLoginButton() {
   const responseGoogle = response => {
-    console.log('google login', response);
+    LoginApi.isExsit(response.profileObj, 'google');
   };
 
   return (

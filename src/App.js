@@ -8,6 +8,7 @@ function App() {
 
   return (
     <div style={{ padding: 10 }}>
+      <h1>VLOOM</h1>
       {/* <div style={{ display: 'flex', gap: 10 }}></div> */}
       <h2>Test google login</h2>
       <GoogleLoginButton></GoogleLoginButton>
