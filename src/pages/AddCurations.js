@@ -43,13 +43,13 @@ const AddCuration = () => {
   if (error) return <div>{error}</div>;
   if (!data) return null;
 
-  const ctype = data[0].data.body.map(el => ({ label: el.title, id: el.id }));
-  const musicList = data[1].data.body.map(el => ({ label: el.title, id: el.id }));
+  // const clist = data[0].data.body.map(el => ({ label: el.title, id: el.id }));
+  // const musicLists = data[1].data.body.map(el => ({ label: el.title, id: el.id }));
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 20, marginLeft: 20, marginRight: 20 }}>
       <h2>Add Curation</h2>
-      <InputForm ctype={ctype} musicList={musicList} />
+      <InputForm clist={data[0].data.body} musicLists={data[1].data.body} />
     </div>
   );
 };
