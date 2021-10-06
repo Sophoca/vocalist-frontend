@@ -1,7 +1,6 @@
 import GoogleLogin from 'react-google-login';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import { LoginApi } from '../api';
-import axios from 'axios';
 require('dotenv').config();
 
 const Google_Key = process.env.REACT_APP_GOOGLE_KEY;
@@ -37,7 +36,7 @@ export default function MyGoogleLoginButton() {
       <GoogleLogin
         clientId={Google_Key}
         onSuccess={responseGoogle}
-        onFailure={console.log('fail')}
+        onFailure={response => console.log(response)}
         cookiePolicy={'single_host_origin'}
         render={renderProps => (
           <GoogleLoginButton

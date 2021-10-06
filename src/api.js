@@ -25,3 +25,28 @@ export const LoginApi = {
       }
     })
 };
+
+export const CurationApi = {
+  createCuration: (title, content, ctype_id, music_id_list) =>
+    api.post('/curation/add', {
+      title: title,
+      content: content,
+      ctype_id: ctype_id,
+      music_id_list: music_id_list
+    }),
+  getCtype: id =>
+    api.get('/ctype', {
+      params: { id: id }
+    }),
+  getCtypeAll: () =>
+    api.get('/ctype', {
+      params: { id: 0 }
+    })
+};
+
+export const MusicApi = {
+  getMusicAll: () =>
+    api.get('/music/search', {
+      params: { id: 0, user_id: 0 }
+    })
+};
