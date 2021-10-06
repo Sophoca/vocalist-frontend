@@ -1,66 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { CurationApi, MusicApi } from '../api';
+import InputForm from '../components/InputForm';
 import useAsync from '../useAsync';
-import ComboBox from '../components/ComboBox';
 
 const AddCuration = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    const getData = async () => {
-      const data = await Promise.all([CurationApi.getCtypeAll(), MusicApi.getMusicAll()]);
-      // .then(function (responses) {
-      //   // Get a JSON object from each of the responses
-      //   return Promise.all(
-      //     responses.map(function (response) {
-      //       return response.json();
-      //     })
-      //   );
-      // })
-      // .then(function (data) {
-      //   // Log the data to the console
-      //   // You would do something with both sets of data here
-      //   console.log(data);
-      // })
-      // .catch(function (error) {
-      //   // if there's an error, log it
-      //   console.log(error);
-      // });
-      // console.log(music_list, c_type);
-      setData(data);
-    };
-    getData();
-  }, []);
+  // const [data, setData] = useState(null);
+  // const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const [resA, resB] = await Promise.all([CurationApi.getCtypeAll(), MusicApi.getMusicAll()]);
+  //       setData({ music_list: resA, c_type: resB });
+  //       setLoading(false);
+  //     } catch (e) {
+  //       setError(e);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
-  console.log(data);
+  // console.log(data);
 
   // useEffect(() => {
   //   async function getData() {
-  //     const data = Promise.all([CurationApi.getCtypeAll, MusicApi.getMusicAll])
+  //     await Promise.all([CurationApi.getCtypeAll, MusicApi.getMusicAll])
   //       .then(responses => Promise.all(responses.map(response => response.json)))
-  //       .then(data => {
-  //         console.log(data);
-  //       });
-  //     console.log(data);
+  //       .then(data => setData(data));
   //   }
   //   getData();
   // }, []);
 
-  // const [state, refetch] = useAsync(CurationApi.getCtypeAll, []);
-  // const { loading, data, error } = state;
+  const fetchData = async () => {
+    const data = await Promise.all([CurationApi.getCtypeAll(), MusicApi.getMusicAll()]);
+    console.log(data);
+    return data;
+  };
+  const [state, refetch] = useAsync(fetchData);
+  const { loading, data, error } = state;
 
-  // if (loading) return <div>Loading...</div>;
-  // if (error) return <div>Error!</div>;
-  // if (!data) return null;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+  if (!data) return null;
 
-  const fontStyle = { fontFamily: 'sans-serif', fontSize: 1 + 'rem' };
-
-  // const ctype = data.data.body.map(el => {
-  //   return { label: el.title, id: el.id };
-  // });
+  const ctype = data[0].data.body.map(el => ({ label: el.title, id: el.id }));
+  const musicList = data[1].data.body.map(el => ({ label: el.title, id: el.id }));
 
   return (
     <div style={{ padding: 20 }}>
       <h2>Add Curation</h2>
+      <InputForm ctype={ctype} musicList={musicList} />
     </div>
   );
 };

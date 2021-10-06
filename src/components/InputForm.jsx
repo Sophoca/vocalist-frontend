@@ -1,3 +1,10 @@
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import Autocomplete from '@mui/material/Autocomplete';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 export default function InputForm() {
   const [inputs, setInputs] = useState({
     title: '',
@@ -5,7 +12,7 @@ export default function InputForm() {
     search: ''
   });
 
-  const { title, description, search } = inputs;
+  const { title, description, ctype, search } = inputs;
 
   const onChange = e => {
     const { value, name, search } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -21,10 +28,17 @@ export default function InputForm() {
   };
 
   return (
-    <div style={{ display: 'flex', gap: 20 }}>
+    <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' }
+      }}
+      noValidate
+      autoComplete="off"
+    >
       <div>
         <p>curation title</p>
-        <input name="title" placeholder="title" style={{ ...fontStyle, width: 400 }}></input>
+        <input name="title" placeholder="title"></input>
         <p>curation description</p>
         <textarea
           name="description"
@@ -32,12 +46,12 @@ export default function InputForm() {
           style={{ ...fontStyle, width: 400, height: 150, resize: 'none' }}
         ></textarea>
         <p>search music</p>
-        <input name="search" placeholder="search" style={{ ...fontStyle, width: 400 }}></input>
+        <input name="search" placeholder="search"></input>
       </div>
       <div>
         <p>curation list</p>
         <ComboBox list={ctype} name="curation type" />
       </div>
-    </div>
+    </Box>
   );
 }
