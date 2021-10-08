@@ -18,10 +18,10 @@ export default function InputForm({ clist, musicLists }) {
   const { title, description, ctype, selectMusic } = inputs;
 
   const onChange = e => {
-    const { value, id } = e.target; // 우선 e.target 에서 name 과 value 를 추출
+    const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
     setInputs({
       ...inputs, // 기존의 input 객체를 복사한 뒤
-      [id]: value // name 키를 가진 값을 value 로 설정
+      [name]: value // name 키를 가진 값을 value 로 설정
     });
     console.log('test', e.target);
   };
@@ -48,9 +48,9 @@ export default function InputForm({ clist, musicLists }) {
         padding: '20px'
       }}
     >
-      <TextField id="title" label="Title" variant="standard" onChange={onChange} />
+      <TextField name="title" label="Title" variant="standard" onChange={onChange} />
       <TextField
-        id="description"
+        name="description"
         label="Description"
         variant="standard"
         multiline
@@ -61,11 +61,7 @@ export default function InputForm({ clist, musicLists }) {
       <input name="search" placeholder="search"></input> */}
       <FormControl>
         <InputLabel>Type</InputLabel>
-        <Select
-          value={ctype}
-          label="Type"
-          onChange={e => setInputs({ ...inputs, ctype: e.target.value })}
-        >
+        <Select name="ctype" value={ctype} label="Type" onChange={onChange}>
           <MenuItem value={0}>None</MenuItem>
           {clist.map(el => (
             <MenuItem value={el.id}>{el.title}</MenuItem>
@@ -77,7 +73,9 @@ export default function InputForm({ clist, musicLists }) {
         id="musicList"
         disableCloseOnSelect
         autoComplete
-        onChange={(event, newValue) => setInputs({ ...inputs, selectMusic: newValue })}
+        onChange={(event, newValue) =>
+          setInputs({ ...inputs, selectMusic: newValue.map(el => el.id) })
+        }
         options={musicLists}
         getOptionLabel={option => `${option.title} - ${option.artist}`}
         renderInput={params => (
