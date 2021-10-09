@@ -1,11 +1,17 @@
 import AppleSignin from 'react-apple-signin-auth';
 import { AppleLoginButton } from 'react-social-login-buttons';
+import { LoginApi } from '../api';
 require('dotenv').config();
 
 /** Apple Signin button */
 export default function MyAppleLoginButton() {
-  const responseApple = response => {
-    console.log('apple login', response);
+  const responseApple = async response => {
+    try {
+      const response1 = await LoginApi.AppleApi(response);
+      console.log(response, response1);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -13,7 +19,7 @@ export default function MyAppleLoginButton() {
       /** Auth options passed to AppleID.auth.init() */
       authOptions={{
         clientId: 'kr.co.vloom.web',
-        scope: 'name',
+        scope: 'email name',
         redirectURI: 'https://vloom.co.kr/appleLoginCallBack',
         state: '',
         nonce: 'nonce',

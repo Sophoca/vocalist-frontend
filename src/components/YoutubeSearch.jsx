@@ -26,7 +26,7 @@ const VideoPlayer = props => (
         title={props.etag}
         src={`https://www.youtube.com/embed/${props.video.id.videoId}`}
         allowFullScreen
-        style={{ width: 480, height: 270 }}
+        style={{ width: 480, height: 270, border: 0 }}
       ></iframe>
     </div>
     <div className="video-player-details">

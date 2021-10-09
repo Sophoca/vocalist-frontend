@@ -27,8 +27,8 @@ export const LoginApi = {
 };
 
 export const CurationApi = {
-  createCuration: (title, content, ctype_id, music_id_list) =>
-    api.post('/curation/add', {
+  createCuration: ({ title, content, ctype_id, music_id_list }) =>
+    api.post('/curation', {
       title: title,
       content: content,
       ctype_id: ctype_id,
@@ -45,8 +45,8 @@ export const CurationApi = {
 };
 
 export const MusicApi = {
-  getMusicAll: () =>
-    api.get('/music/search', {
+  getAllMusic: type =>
+    api.get(`/music/${type}`, {
       params: { id: 0, user_id: 0 }
     })
 };

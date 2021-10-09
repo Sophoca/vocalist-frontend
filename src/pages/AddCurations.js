@@ -5,11 +5,11 @@ import useAsync from '../useAsync';
 
 const AddCuration = () => {
   async function fetchData() {
-    const responses = await Promise.all([CurationApi.getCtypeAll(), MusicApi.getMusicAll()]);
+    const responses = await Promise.all([CurationApi.getCtypeAll(), MusicApi.getAllMusic('part')]);
     return responses.map(response => response.data);
   }
 
-  const [state, refetch] = useAsync(fetchData);
+  const [state, refetch] = useAsync(fetchData, []);
   const { loading, data, error } = state;
   console.log(data);
 
