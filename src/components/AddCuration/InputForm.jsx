@@ -32,13 +32,11 @@ export default function InputForm({ clist, musicLists }) {
     setInputs(initState);
   };
 
-  const validate = ({ title, content, ctype_id, music_id_list }) => {
+  const validate = values => {
     const errors = {};
-    if (title === '') errors.title = 'You must input title.';
-    if (content === '') errors.content = 'You must input title.';
-    if (ctype_id === 0) errors.ctype_id = 'You must input title.';
-    if (music_id_list.length === 0) errors.music_id_list = 'You must input title.';
-
+    Object.keys(values).map(el => {
+      if (values[el] === initState[el] || values[el].length === 0) errors[el] = 'error';
+    });
     return errors;
   };
 
