@@ -16,8 +16,8 @@ const Menu = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/add-curation" activeStyle={activeStyle}>
-            AddCuration
+          <NavLink exact to="/curation" activeStyle={activeStyle}>
+            Curation
           </NavLink>
         </li>
       </ul>

@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Autocomplete from '@mui/material/Autocomplete';
 import { CurationApi } from '../../api';
 
-export default function InputForm({ clist, musicLists }) {
+export default function InputForm({ clist, musicLists, refetch }) {
   const initState = {
     title: '',
     content: '',
@@ -48,14 +48,19 @@ export default function InputForm({ clist, musicLists }) {
 
   useEffect(() => {
     const onSubmit = async values => {
-      const response = await CurationApi.createCuration(values);
+      const response = await CurationApi.createCuration({
+        ...values,
+        music_id_list: values.music_id_list.map(el => el.id)
+      });
       console.log('test onsubmit', response);
       alert(response.data.log);
-      return response;
+      if (response.data.status) onReset();
+      return response.data;
     };
     if (submitting) {
       if (Object.keys(errors).length === 0) {
         onSubmit(inputs);
+        refetch();
       }
       setSubmitting(false);
     }
@@ -64,7 +69,8 @@ export default function InputForm({ clist, musicLists }) {
   console.log('test', inputs);
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h2>Add Curation</h2>
       <Box
         component="form"
         onSubmit={handleSubmit}
@@ -80,15 +86,15 @@ export default function InputForm({ clist, musicLists }) {
           border: '1px dashed grey',
           borderRadius: 5,
           padding: '20px',
-          maxWidth: 800,
-          minWidth: 400
+          width: 400
         }}
       >
         <TextField
           name="title"
           label="Title"
           variant="standard"
-          error={errors.title || false}
+          value={inputs.title}
+          error={errors.title}
           onChange={onChange}
         />
         <TextField
@@ -97,6 +103,7 @@ export default function InputForm({ clist, musicLists }) {
           variant="standard"
           multiline
           maxRows={5}
+          value={inputs.content}
           error={errors.content}
           onChange={onChange}
         />
@@ -122,10 +129,9 @@ export default function InputForm({ clist, musicLists }) {
           id="musicList"
           disableCloseOnSelect
           autoComplete
-          key={option => option.id}
-          onChange={(event, newValue) =>
-            setInputs({ ...inputs, music_id_list: newValue.map(el => el.id) })
-          }
+          clearOnEscape
+          onChange={(event, newValue) => setInputs({ ...inputs, music_id_list: newValue })}
+          value={inputs.music_id_list}
           options={musicLists}
           getOptionLabel={option => `${option.title} - ${option.artist}`}
           renderInput={params => (
@@ -143,6 +149,6 @@ export default function InputForm({ clist, musicLists }) {
         </Button>
         {/* <ComboBox list={ctype_id} name="curation type" /> */}
       </Box>
-    </>
+    </div>
   );
 }

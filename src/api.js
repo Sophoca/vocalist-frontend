@@ -27,6 +27,14 @@ export const LoginApi = {
 };
 
 export const CurationApi = {
+  getAllCuration: () =>
+    api.get('/curation', {
+      params: { id: 0 }
+    }),
+  getCuration: id =>
+    api.get('/curation', {
+      params: { id: id }
+    }),
   createCuration: ({ title, content, ctype_id, music_id_list }) =>
     api.post('/curation', {
       title: title,
@@ -34,13 +42,13 @@ export const CurationApi = {
       ctype_id: ctype_id,
       music_id_list: music_id_list
     }),
-  getCtype: id =>
-    api.get('/ctype', {
-      params: { id: id }
-    }),
   getCtypeAll: () =>
     api.get('/ctype', {
       params: { id: 0 }
+    }),
+  getCtype: id =>
+    api.get('/ctype', {
+      params: { id: id }
     })
 };
 
