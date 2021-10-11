@@ -1,8 +1,9 @@
 import React from 'react';
-import { fetchDatas, CurationApi, MusicApi } from '../api';
+import { CurationApi, MusicApi } from '../api';
 import InputForm from '../components/Curation/InputForm';
 import useAsync from '../useAsync';
 import Box from '@mui/material/Box';
+import CurationList from '../components/Curation/CurationList';
 
 const AddCuration = () => {
   async function fetchData() {
@@ -26,37 +27,13 @@ const AddCuration = () => {
     <div
       style={{
         padding: 20,
-        marginLeft: 20,
-        marginRight: 20,
         display: 'flex',
         flexWrap: 'wrap',
         gap: 20
       }}
     >
       <InputForm clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
-      <div>
-        <h2>Curation List</h2>
-        <Box
-          component="div"
-          sx={{
-            // '& .MuiTextField-root': { width: '400px' },
-            // '& .MuiSelect-root': { width: '400px' },
-            display: 'flex',
-            gap: '20px',
-            flexWrap: 'wrap',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            border: '1px dashed grey',
-            borderRadius: 5,
-            padding: '20px',
-            width: 400
-          }}
-        >
-          {data[2].body.map(el => (
-            <div>{`#${el.id} ${el.title}`}</div>
-          ))}
-        </Box>
-      </div>
+      <CurationList clist={data[2].body} />
     </div>
   );
 };

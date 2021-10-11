@@ -7,7 +7,13 @@ import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Autocomplete from '@mui/material/Autocomplete';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import { CurationApi } from '../../api';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function InputForm({ clist, musicLists, refetch }) {
   const initState = {
@@ -46,6 +52,11 @@ export default function InputForm({ clist, musicLists, refetch }) {
     setErrors(validate(inputs));
   };
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setErrors({});
+  };
+
   useEffect(() => {
     const onSubmit = async values => {
       const response = await CurationApi.createCuration({
@@ -55,7 +66,7 @@ export default function InputForm({ clist, musicLists, refetch }) {
       console.log('test onsubmit', response);
       alert(response.data.log);
       if (response.data.status) onReset();
-      return response.data;
+      return response;
     };
     if (submitting) {
       if (Object.keys(errors).length === 0) {
@@ -69,86 +80,98 @@ export default function InputForm({ clist, musicLists, refetch }) {
   console.log('test', inputs);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <h2>Add Curation</h2>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        noValidate
-        sx={{
-          // '& .MuiTextField-root': { width: '400px' },
-          // '& .MuiSelect-root': { width: '400px' },
-          display: 'flex',
-          gap: '20px',
-          flexWrap: 'wrap',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          border: '1px dashed grey',
-          borderRadius: 5,
-          padding: '20px',
-          width: 400
-        }}
+    <>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        open={Object.keys(errors).length !== 0}
+        autoHideDuration={2000}
+        onClose={handleClose}
       >
-        <TextField
-          name="title"
-          label="Title"
-          variant="standard"
-          value={inputs.title}
-          error={errors.title}
-          onChange={onChange}
-        />
-        <TextField
-          name="content"
-          label="content"
-          variant="standard"
-          multiline
-          maxRows={5}
-          value={inputs.content}
-          error={errors.content}
-          onChange={onChange}
-        />
-        {/* <p>search music</p>
-      <input name="search" placeholder="search"></input> */}
-        <FormControl>
-          <InputLabel>Type</InputLabel>
-          <Select
-            name="ctype_id"
-            value={inputs.ctype_id}
-            label="Type"
-            error={errors.ctype_id}
+        <Alert variant="filled" severity="error">
+          Error Occured!
+        </Alert>
+      </Snackbar>
+      <div>
+        <h2>Add Curation</h2>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{
+            // '& .MuiTextField-root': { width: '400px' },
+            // '& .MuiSelect-root': { width: '400px' },
+            display: 'flex',
+            gap: '20px',
+            flexWrap: 'wrap',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            border: '1px dashed grey',
+            borderRadius: 5,
+            padding: '20px',
+            width: 500
+          }}
+        >
+          <TextField
+            name="title"
+            label="Title"
+            variant="standard"
+            value={inputs.title}
+            error={errors.title}
             onChange={onChange}
-          >
-            <MenuItem value={0}>None</MenuItem>
-            {clist.map(el => (
-              <MenuItem value={el.id}>{el.title}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Autocomplete
-          multiple
-          id="musicList"
-          disableCloseOnSelect
-          autoComplete
-          clearOnEscape
-          onChange={(event, newValue) => setInputs({ ...inputs, music_id_list: newValue })}
-          value={inputs.music_id_list}
-          options={musicLists}
-          getOptionLabel={option => `${option.title} - ${option.artist}`}
-          renderInput={params => (
-            <TextField
-              {...params}
-              variant="standard"
-              label="Music List"
-              error={errors.music_id_list}
-              placeholder="search"
-            />
-          )}
-        />
-        <Button variant="contained" type="submit" disabled={submitting}>
-          Add Curation
-        </Button>
-        {/* <ComboBox list={ctype_id} name="curation type" /> */}
-      </Box>
-    </div>
+          />
+          <TextField
+            name="content"
+            label="content"
+            variant="standard"
+            multiline
+            maxRows={5}
+            value={inputs.content}
+            error={errors.content}
+            onChange={onChange}
+          />
+          {/* <p>search music</p>
+      <input name="search" placeholder="search"></input> */}
+          <FormControl>
+            <InputLabel>Type</InputLabel>
+            <Select
+              name="ctype_id"
+              value={inputs.ctype_id}
+              label="Type"
+              error={errors.ctype_id}
+              onChange={onChange}
+            >
+              <MenuItem value={0}>None</MenuItem>
+              {clist.map(el => (
+                <MenuItem value={el.id}>{el.title}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Autocomplete
+            multiple
+            id="musicList"
+            disableCloseOnSelect
+            autoComplete
+            clearOnEscape
+            onChange={(event, newValue) => setInputs({ ...inputs, music_id_list: newValue })}
+            value={inputs.music_id_list}
+            options={musicLists}
+            getOptionLabel={option => `${option.title} - ${option.artist}`}
+            renderInput={params => (
+              <TextField
+                {...params}
+                variant="standard"
+                label="Music List"
+                error={errors.music_id_list}
+                placeholder="search"
+              />
+            )}
+          />
+          <Button variant="contained" type="submit" disabled={submitting}>
+            Add Curation
+          </Button>
+          {/* <ComboBox list={ctype_id} name="curation type" /> */}
+        </Box>
+      </div>
+    </>
   );
 }
