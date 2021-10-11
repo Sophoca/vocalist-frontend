@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import Curation from './Curation';
 
 export default function CurationList({ clist }) {
   return (
@@ -22,7 +23,7 @@ export default function CurationList({ clist }) {
         }}
       >
         {clist.map(el => (
-          <div>{`#${el.id} ${el.title}`}</div>
+          <Curation info={el} />
         ))}
       </Box>
     </div>
