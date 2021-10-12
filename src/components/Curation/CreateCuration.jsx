@@ -15,7 +15,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function InputForm({ clist, musicLists, refetch }) {
+export default function CreateCuration({ clist, musicLists, refetch }) {
   const initState = {
     title: '',
     content: '',
@@ -93,26 +93,9 @@ export default function InputForm({ clist, musicLists, refetch }) {
           Error Occured!
         </Alert>
       </Snackbar>
-      <div>
-        <h2>Add Curation</h2>
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          noValidate
-          sx={{
-            // '& .MuiTextField-root': { width: '400px' },
-            // '& .MuiSelect-root': { width: '400px' },
-            display: 'flex',
-            gap: '20px',
-            flexWrap: 'wrap',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            border: '1px dashed grey',
-            borderRadius: 5,
-            padding: '20px',
-            width: 500
-          }}
-        >
+      <div className="container">
+        <h2>Create Curation</h2>
+        <Box className="box" component="form" onSubmit={handleSubmit} noValidate>
           <TextField
             name="title"
             label="Title"

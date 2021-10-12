@@ -42,6 +42,11 @@ export const CurationApi = {
       ctype_id: ctype_id,
       music_id_list: music_id_list
     }),
+  addCurationItem: ({ curation_id, music_id_list }) =>
+    api.post('/curation/item/list', {
+      curation_id: curation_id,
+      music_id_list: music_id_list
+    }),
   getCtypeAll: () =>
     api.get('/ctype', {
       params: { id: 0 }

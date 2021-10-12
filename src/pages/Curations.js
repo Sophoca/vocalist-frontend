@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { CurationApi, MusicApi } from '../api';
-import InputForm from '../components/Curation/InputForm';
+import CreateCuration from '../components/Curation/CreateCuration';
 import useAsync from '../useAsync';
 import CurationList from '../components/Curation/CurationList';
-import MusicList from '../components/Curation/MusicList';
+import ItemList from '../components/Curation/ItemList';
+import '../components/Curation/curation.css';
 
-const AddCuration = () => {
+const Curation = () => {
   async function fetchData() {
     const responses = await Promise.all([
       CurationApi.getCtypeAll(),
@@ -29,15 +30,14 @@ const AddCuration = () => {
       style={{
         padding: 20,
         display: 'flex',
-        flexWrap: 'wrap',
         gap: 20
       }}
     >
-      <InputForm clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
+      <CreateCuration clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
       <CurationList clist={data[2].body} setCId={setCId} />
-      {cId && <MusicList curation_id={cId} />}
+      {cId && <ItemList curation_id={cId} />}
     </div>
   );
 };
 
-export default AddCuration;
+export default Curation;

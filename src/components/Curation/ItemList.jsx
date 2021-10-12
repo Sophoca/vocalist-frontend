@@ -3,7 +3,7 @@ import { CurationApi } from '../../api';
 import useAsync from '../../useAsync';
 import Box from '@mui/material/Box';
 
-export default function MusicList({ curation_id }) {
+export default function ItemList({ curation_id }) {
   async function fetchData(id) {
     const response = await CurationApi.getCuration(id);
     console.log('response', response);
@@ -13,29 +13,15 @@ export default function MusicList({ curation_id }) {
   const [state, refetch] = useAsync(() => fetchData(curation_id), [curation_id]);
   const { loading, data, error } = state;
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div style={{ margin: 10, width: 33 + '%' }}>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!data) return null;
 
   return (
-    <div>
-      <h2>Add Curation</h2>
-      <Box
-        component="div"
-        sx={{
-          // '& .MuiTextField-root': { width: '400px' },
-          // '& .MuiSelect-root': { width: '400px' },
-          display: 'flex',
-          gap: '20px',
-          flexWrap: 'wrap',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          border: '1px dashed grey',
-          borderRadius: 5,
-          padding: '20px',
-          width: 500
-        }}
-      >
+    <div className="container">
+      <h2>Curation Items</h2>
+      <Box className="box" component="div">
+        {`#${curation_id}`}
         {data.body.map((el, i) => (
           <div key={i}>{`${el.title}-${el.artist}`}</div>
         ))}

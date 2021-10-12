@@ -8,7 +8,7 @@ import image from '../../images/curation_temp.jpg';
 
 export default function Curation({ info, setCId }) {
   return (
-    <Card sx={{ height: 'auto' }}>
+    <Card>
       <CardActionArea onClick={() => setCId(info.id)}>
         {/* <CardMedia component="img" height="140" image={image} alt="curation cover img" /> */}
         <CardContent>

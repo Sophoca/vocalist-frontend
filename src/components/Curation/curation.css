@@ -1,0 +1,16 @@
+.box {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px dashed grey;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  overflow: auto;
+}
+
+.container {
+  margin: 10px;
+  width: 33%;
+}
