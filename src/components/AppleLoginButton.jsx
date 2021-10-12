@@ -5,13 +5,8 @@ require('dotenv').config();
 
 /** Apple Signin button */
 export default function MyAppleLoginButton() {
-  const responseApple = async response => {
-    try {
-      const response1 = await LoginApi.AppleApi(response);
-      console.log(response, response1);
-    } catch (err) {
-      console.log(err);
-    }
+  const responseApple = response => {
+    console.log(response);
   };
 
   return (
@@ -20,7 +15,7 @@ export default function MyAppleLoginButton() {
       authOptions={{
         clientId: 'kr.co.vloom.web',
         scope: 'email name',
-        redirectURI: 'https://vloom.co.kr/appleLoginCallBack',
+        redirectURI: 'https://vloom-a19e7.firebaseapp.com/__/auth/handler',
         state: '',
         nonce: 'nonce',
         usePopup: true

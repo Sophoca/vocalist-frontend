@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CurationApi, MusicApi } from '../api';
 import InputForm from '../components/Curation/InputForm';
 import useAsync from '../useAsync';
-import Box from '@mui/material/Box';
 import CurationList from '../components/Curation/CurationList';
+import MusicList from '../components/Curation/MusicList';
 
 const AddCuration = () => {
   async function fetchData() {
@@ -17,7 +17,8 @@ const AddCuration = () => {
 
   const [state, refetch] = useAsync(fetchData, []);
   const { loading, data, error } = state;
-  console.log(data);
+  const [cId, setCId] = useState(null);
+  console.log(state);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -33,7 +34,8 @@ const AddCuration = () => {
       }}
     >
       <InputForm clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
-      <CurationList clist={data[2].body} />
+      <CurationList clist={data[2].body} setCId={setCId} />
+      {cId && <MusicList curation_id={cId} />}
     </div>
   );
 };

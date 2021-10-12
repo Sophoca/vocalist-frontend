@@ -32,8 +32,8 @@ export const CurationApi = {
       params: { id: 0 }
     }),
   getCuration: id =>
-    api.get('/curation', {
-      params: { id: id }
+    api.get('/curation/item', {
+      params: { curation_id: id }
     }),
   createCuration: ({ title, content, ctype_id, music_id_list }) =>
     api.post('/curation', {

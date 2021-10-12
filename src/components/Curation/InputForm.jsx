@@ -65,13 +65,15 @@ export default function InputForm({ clist, musicLists, refetch }) {
       });
       console.log('test onsubmit', response);
       alert(response.data.log);
-      if (response.data.status) onReset();
+      if (response.data.status) {
+        onReset();
+        refetch();
+      }
       return response;
     };
     if (submitting) {
       if (Object.keys(errors).length === 0) {
         onSubmit(inputs);
-        refetch();
       }
       setSubmitting(false);
     }

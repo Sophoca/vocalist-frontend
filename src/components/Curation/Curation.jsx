@@ -6,11 +6,11 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import image from '../../images/curation_temp.jpg';
 
-export default function Curation({ info }) {
+export default function Curation({ info, setCId }) {
   return (
-    <Card>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={image} alt="curation cover img" />
+    <Card sx={{ height: 'auto' }}>
+      <CardActionArea onClick={() => setCId(info.id)}>
+        {/* <CardMedia component="img" height="140" image={image} alt="curation cover img" /> */}
         <CardContent>
           <Typography sx={{ fontSize: 12 }} color="text.secondary" gutterBottom>
             #{info.id}
