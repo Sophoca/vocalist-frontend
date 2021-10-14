@@ -10,6 +10,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { CurationApi } from '../../api';
+import AutoComplete from './AutoComplete';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -63,13 +64,13 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
         ...values,
         music_id_list: values.music_id_list.map(el => el.id)
       });
-      alert(response.data.log);
       if (response.data.status) {
         onReset();
         refetch();
       }
       return response;
     };
+
     if (submitting) {
       if (Object.keys(errors).length === 0) {
         onSubmit(inputs);
@@ -103,7 +104,7 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
           />
           <TextField
             name="content"
-            label="content"
+            label="Content"
             variant="standard"
             multiline
             maxRows={5}
@@ -111,8 +112,6 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
             error={errors.content}
             onChange={onChange}
           />
-          {/* <p>search music</p>
-      <input name="search" placeholder="search"></input> */}
           <FormControl>
             <InputLabel>Type</InputLabel>
             <Select
@@ -128,28 +127,14 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
               ))}
             </Select>
           </FormControl>
-          <Autocomplete
-            multiple
-            id="musicList"
-            size="small"
-            disableCloseOnSelect
-            autoComplete
-            onChange={(event, newValue) => setInputs({ ...inputs, music_id_list: newValue })}
-            value={inputs.music_id_list}
-            options={musicLists}
-            getOptionLabel={option => `${option.title} - ${option.artist}`}
-            renderInput={params => (
-              <TextField
-                {...params}
-                variant="standard"
-                label="Music List"
-                error={errors.music_id_list}
-                placeholder="search"
-              />
-            )}
+          <AutoComplete
+            musicLists={musicLists}
+            inputs={inputs}
+            errors={errors}
+            setInputs={setInputs}
           />
           <Button variant="contained" type="submit" disabled={submitting}>
-            Add Curation
+            Create Curation
           </Button>
           {/* <ComboBox list={ctype_id} name="curation type" /> */}
         </Box>
