@@ -63,7 +63,6 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
         ...values,
         music_id_list: values.music_id_list.map(el => el.id)
       });
-      console.log('test onsubmit', response);
       alert(response.data.log);
       if (response.data.status) {
         onReset();
@@ -78,8 +77,6 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
       setSubmitting(false);
     }
   }, [errors]);
-
-  console.log('test', inputs);
 
   return (
     <>
@@ -134,9 +131,9 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
           <Autocomplete
             multiple
             id="musicList"
+            size="small"
             disableCloseOnSelect
             autoComplete
-            clearOnEscape
             onChange={(event, newValue) => setInputs({ ...inputs, music_id_list: newValue })}
             value={inputs.music_id_list}
             options={musicLists}

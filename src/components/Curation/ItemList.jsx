@@ -16,6 +16,7 @@ export default function ItemList({ curation_id }) {
   if (loading) return <div style={{ margin: 10, width: 33 + '%' }}>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!data) return null;
+  // console.log('test', state);
 
   return (
     <div className="container">
