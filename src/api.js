@@ -42,8 +42,13 @@ export const CurationApi = {
       ctype_id: ctype_id,
       music_id_list: music_id_list
     }),
-  addCurationItem: ({ curation_id, music_id_list }) =>
+  addCurationItems: ({ curation_id, music_id_list }) =>
     api.post('/curation/item/list', {
+      curation_id: curation_id,
+      music_id_list: music_id_list
+    }),
+  deleteCurationItems: ({ curation_id, music_id_list }) =>
+    api.delete('/curation/item/list', {
       curation_id: curation_id,
       music_id_list: music_id_list
     }),
@@ -58,8 +63,8 @@ export const CurationApi = {
 };
 
 export const MusicApi = {
-  getAllMusic: type =>
-    api.get(`/music/${type}`, {
+  getAllMusic: () =>
+    api.get(`/music`, {
       params: { id: 0, user_id: 0 }
     })
 };
