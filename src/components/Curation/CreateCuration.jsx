@@ -21,7 +21,7 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
     title: '',
     content: '',
     ctype_id: 0,
-    music_id_list: []
+    addList: []
   };
   const [inputs, setInputs] = useState(initState);
   const [errors, setErrors] = useState({});
@@ -62,7 +62,7 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
     const onSubmit = async values => {
       const response = await CurationApi.createCuration({
         ...values,
-        music_id_list: values.music_id_list.map(el => el.id)
+        music_id_list: values.addList.map(el => el.id)
       });
       if (response.data.status) {
         onReset();

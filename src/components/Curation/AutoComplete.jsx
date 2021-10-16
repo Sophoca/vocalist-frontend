@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
-export default function CreateCuration({ musicLists, inputs, errors, setInputs }) {
+export default function AutoComplete({ musicLists, inputs, errors, setInputs }) {
   return (
     <Autocomplete
       multiple
@@ -10,8 +10,8 @@ export default function CreateCuration({ musicLists, inputs, errors, setInputs }
       size="small"
       disableCloseOnSelect
       autoComplete
-      onChange={(event, newValue) => setInputs({ ...inputs, music_id_list: newValue })}
-      value={inputs.music_id_list}
+      onChange={(event, newValue) => setInputs({ ...inputs, addList: newValue })}
+      value={inputs.addList}
       options={musicLists}
       getOptionLabel={option => `${option.title} - ${option.artist}`}
       renderInput={params => (
@@ -19,7 +19,7 @@ export default function CreateCuration({ musicLists, inputs, errors, setInputs }
           {...params}
           variant="standard"
           label="Music List"
-          error={errors.music_id_list}
+          error={errors.addList}
           placeholder="search"
         />
       )}

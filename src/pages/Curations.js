@@ -35,7 +35,7 @@ const Curation = () => {
     >
       <CreateCuration clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
       <CurationList clist={data[2].body} setCId={setCId} />
-      {cId && <ItemList curation_id={cId} />}
+      {cId && <ItemList curation_id={cId} musicLists={data[1].body} />}
     </div>
   );
 };
