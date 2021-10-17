@@ -16,3 +16,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.p20 {
+  padding: 20px;
+}
+
+.flex {
+  display: flex;
+}

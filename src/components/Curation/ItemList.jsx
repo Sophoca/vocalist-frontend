@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CurationApi } from '../../api';
 import useAsync from '../../useAsync';
 import AutoComplete from './AutoComplete';
@@ -12,75 +12,86 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function ItemList({ curation_id, musicLists }) {
   async function fetchData(id) {
-    const response = await CurationApi.getCuration(id);
-    console.log('response', response);
-    return response.data;
+    if (id) {
+      const response = await CurationApi.getCuration(id);
+      return response.data;
+    }
+    return 'init';
   }
-  console.log('curationid', fetchData);
   const [state, refetch] = useAsync(() => fetchData(curation_id), [curation_id]);
   const { loading, data, error } = state;
 
-  const [inputs, setInputs] = useState({ delList: [], addList: [] });
+  const [inputs, setInputs] = useState();
+  useEffect(() => {
+    setInputs({ delList: [], addList: [] });
+  }, [curation_id]);
 
   const handleDelete = id => {
     inputs.delList.includes(id)
       ? setInputs({ ...inputs, delList: inputs.delList.filter(el => el !== id) })
       : setInputs({ ...inputs, delList: inputs.delList.concat(id) });
   };
-  console.log('test', inputs);
+  console.log('test', data, state);
 
   if (loading) return <div style={{ margin: 10, width: 33 + '%' }}>Loading...</div>;
   if (error) return <div>{error}</div>;
-  if (!data) return null;
+  if (!data) return <div>no data</div>;
 
-  const extractID = data.body.map(el => el.id);
+  const extractID = data.body ? data.body.map(el => el.id) : [];
   const restMusicList = musicLists.filter(el => !extractID.includes(el.id));
-
   // console.log('test', musicLists, data.body, restMusicList);
 
   return (
     <div className="container">
-      <h2>{`Modify #${curation_id} Curation`}</h2>
+      <h2>{curation_id ? `Modify #${curation_id} Curation` : 'Select Curation'}</h2>
       <Box className="box" component="div">
-        <div>
-          <h3 style={{ margin: 0 }}>Delete Items</h3>
-          <List dense>
-            {data.body.map(el => (
-              <ListItem
-                key={el.id}
-                sx={{ paddingTop: 0, paddingBottom: 0 }}
-                secondaryAction={
-                  <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(el.id)}>
-                    <DeleteIcon />
-                  </IconButton>
-                }
-              >
-                <ListItemText
-                  primary={el.title}
-                  secondary={el.artist}
-                  secondaryTypographyProps={
-                    inputs.delList.includes(el.id) ? { color: 'red' } : null
-                  }
-                  sx={
-                    inputs.delList.includes(el.id)
-                      ? { secondary: 'red', color: 'red', textDecoration: 'line-through' }
-                      : null
-                  }
-                />
-              </ListItem>
-            ))}
-          </List>
-        </div>
-        <div>
-          <h3 style={{ margin: 0 }}>Add Items</h3>
-          <AutoComplete
-            musicLists={restMusicList}
-            inputs={inputs}
-            errors
-            setInputs={setInputs}
-          ></AutoComplete>
-        </div>
-        <Button variant="contained">Modify Curation</Button>
+        {data === 'init' ? null : (
+          <>
+            <Box className="box" component="div">
+              <h3 style={{ margin: 0 }}>Add Items</h3>
+              <AutoComplete
+                musicLists={restMusicList}
+                inputs={inputs}
+                errors
+                setInputs={setInputs}
+              ></AutoComplete>
+            </Box>
+            <Box className="box" component="div">
+              <h3 style={{ margin: 0 }}>Delete Items</h3>
+              <List>
+                {data.body.map(el => (
+                  <ListItem
+                    key={el.id}
+                    sx={{ paddingTop: 0, paddingBottom: 0 }}
+                    secondaryAction={
+                      <IconButton
+                        edge="end"
+                        aria-label="delete"
+                        onClick={() => handleDelete(el.id)}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                    }
+                  >
+                    <ListItemText
+                      primary={el.title}
+                      secondary={el.artist}
+                      secondaryTypographyProps={
+                        inputs.delList.includes(el.id) ? { color: 'red' } : null
+                      }
+                      sx={
+                        inputs.delList.includes(el.id)
+                          ? { secondary: 'red', color: 'red', textDecoration: 'line-through' }
+                          : null
+                      }
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+            <Button variant="contained">Modify Curation</Button>
+          </>
+        )}
       </Box>
     </div>
   );

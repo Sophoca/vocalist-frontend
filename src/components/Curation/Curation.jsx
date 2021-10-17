@@ -13,7 +13,7 @@ export default function Curation({ info, setCId }) {
         {/* <CardMedia component="img" height="140" image={image} alt="curation cover img" /> */}
         <CardContent>
           <Typography sx={{ fontSize: 12 }} color="text.secondary" gutterBottom>
-            #{info.id}
+            #{info.id} (노래 {info.count}곡)
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
             {info.title}

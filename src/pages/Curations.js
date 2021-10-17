@@ -8,12 +8,16 @@ import '../components/Curation/curation.css';
 
 const Curation = () => {
   async function fetchData() {
-    const responses = await Promise.all([
-      CurationApi.getCtypeAll(),
-      MusicApi.getAllMusic('part'),
-      CurationApi.getAllCuration()
-    ]);
-    return responses.map(response => response.data);
+    try {
+      const responses = await Promise.all([
+        CurationApi.getCtypeAll(),
+        MusicApi.getAllMusic('part'),
+        CurationApi.getAllCuration()
+      ]);
+      return responses.map(response => response.data);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   const [state, refetch] = useAsync(fetchData, []);
@@ -27,15 +31,14 @@ const Curation = () => {
 
   return (
     <div
+      className="p20 flex"
       style={{
-        padding: 20,
-        display: 'flex',
         gap: 20
       }}
     >
       <CreateCuration clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
       <CurationList clist={data[2].body} setCId={setCId} />
-      {cId && <ItemList curation_id={cId} musicLists={data[1].body} />}
+      {<ItemList curation_id={cId} musicLists={data[1].body} />}
     </div>
   );
 };
