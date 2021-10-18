@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { CurationApi } from '../../api';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -9,7 +11,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Autocomplete from '@mui/material/Autocomplete';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import { CurationApi } from '../../api';
 import AutoComplete from './AutoComplete';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
