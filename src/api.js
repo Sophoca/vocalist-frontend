@@ -42,15 +42,11 @@ export const CurationApi = {
       ctype_id: ctype_id,
       music_id_list: music_id_list
     }),
-  addCurationItems: ({ curation_id, music_id_list }) =>
-    api.post('/curation/item/list', {
+  modifyCurationItems: (curation_id, addList, delList) =>
+    api.patch('/curation/item/list', {
       curation_id: curation_id,
-      music_id_list: music_id_list
-    }),
-  deleteCurationItems: ({ curation_id, music_id_list }) =>
-    api.delete('/curation/item/list', {
-      curation_id: curation_id,
-      music_id_list: music_id_list
+      insert_list: addList,
+      delete_list: delList
     }),
   getCtypeAll: () =>
     api.get('/ctype', {

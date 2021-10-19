@@ -32,6 +32,24 @@ export default function ItemList({ curation_id, musicLists }) {
       : setInputs({ ...inputs, delList: inputs.delList.concat(id) });
   };
 
+  const handleSubmit = () => {
+    async function modifyData() {
+      const response = await CurationApi.modifyCurationItems(
+        curation_id,
+        inputs.addList.map(el => el.id),
+        inputs.delList
+      );
+      if (response.status) refetch();
+      return response.data;
+    }
+    modifyData();
+    console.log(
+      curation_id,
+      inputs.addList.map(el => el.id),
+      inputs.delList
+    );
+  };
+
   if (loading) return <div style={{ margin: 10, width: 33 + '%' }}>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!data)
@@ -89,6 +107,7 @@ export default function ItemList({ curation_id, musicLists }) {
         <Button
           variant="contained"
           disabled={Object.values(inputs).reduce((acc, cur) => acc + cur.length, 0) === 0}
+          onClick={handleSubmit}
         >
           Modify Curation
         </Button>
