@@ -21,7 +21,7 @@ export default function ItemList({ curation_id, musicLists }) {
   const [state, refetch] = useAsync(() => fetchData(curation_id), [curation_id]);
   const { loading, data, error } = state;
 
-  const [inputs, setInputs] = useState();
+  const [inputs, setInputs] = useState({ delList: [], addList: [] });
   useEffect(() => {
     setInputs({ delList: [], addList: [] });
   }, [curation_id]);
@@ -31,7 +31,6 @@ export default function ItemList({ curation_id, musicLists }) {
       ? setInputs({ ...inputs, delList: inputs.delList.filter(el => el !== id) })
       : setInputs({ ...inputs, delList: inputs.delList.concat(id) });
   };
-  console.log('test', data, state);
 
   if (loading) return <div style={{ margin: 10, width: 33 + '%' }}>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -44,7 +43,6 @@ export default function ItemList({ curation_id, musicLists }) {
 
   const extractID = data.body ? data.body.map(el => el.id) : [];
   const restMusicList = musicLists.filter(el => !extractID.includes(el.id));
-  // console.log('test', musicLists, data.body, restMusicList);
 
   return (
     <div className="container">
@@ -88,7 +86,12 @@ export default function ItemList({ curation_id, musicLists }) {
             ))}
           </List>
         </Box>
-        <Button variant="contained">Modify Curation</Button>
+        <Button
+          variant="contained"
+          disabled={Object.values(inputs).reduce((acc, cur) => acc + cur.length, 0) === 0}
+        >
+          Modify Curation
+        </Button>
       </Box>
     </div>
   );
