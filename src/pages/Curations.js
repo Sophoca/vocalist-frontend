@@ -11,7 +11,7 @@ const Curation = () => {
     try {
       const responses = await Promise.all([
         CurationApi.getCtypeAll(),
-        MusicApi.getAllMusic('part'),
+        MusicApi.getAllMusic(),
         CurationApi.getAllCuration()
       ]);
       return responses.map(response => response.data);

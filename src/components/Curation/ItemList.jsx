@@ -39,7 +39,10 @@ export default function ItemList({ curation_id, musicLists }) {
         inputs.addList.map(el => el.id),
         inputs.delList
       );
-      if (response.status) refetch();
+      if (response.status) {
+        refetch();
+        setInputs({ delList: [], addList: [] });
+      }
       return response.data;
     }
     modifyData();
