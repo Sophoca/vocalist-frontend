@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import image from '../../images/curation_temp.jpg';
 
-export default function Curation({ info, setCId }) {
+export default function CurationCard({ info, setCId }) {
   return (
     <Card>
       <CardActionArea onClick={() => setCId(info.id)}>

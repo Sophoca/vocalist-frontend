@@ -26,7 +26,7 @@ const Curation = () => {
   console.log(state);
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (error) return <div>error</div>;
   if (!data) return null;
 
   return (
@@ -38,7 +38,7 @@ const Curation = () => {
     >
       <CreateCuration clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
       <CurationList clist={data[2].body} setCId={setCId} />
-      {<ItemList curation_id={cId} musicLists={data[1].body} />}
+      <ItemList curation_id={cId} musicLists={data[1].body} />
     </div>
   );
 };

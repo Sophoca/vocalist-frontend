@@ -62,5 +62,57 @@ export const MusicApi = {
   getAllMusic: () =>
     api.get(`/music`, {
       params: { id: 0, user_id: 0 }
+    }),
+  getMusic: (id, user_id) =>
+    api.get(`/music`, {
+      params: { id: id, user_id: user_id }
     })
+};
+
+export const PlaylistApi = {
+  getPlaylist: user_id =>
+    api.get('/playlist', {
+      params: { user_id: user_id }
+    }),
+  createPlaylist: (user_id, title, visible) => {
+    api.post('/playlist', {
+      user_id: user_id,
+      title: title,
+      visible: visible
+    });
+  },
+  deletePlaylist: id => {
+    api.delete('/playlist', {
+      id: id
+    });
+  },
+  getPlaylistItem: playlist_id =>
+    api.get('/playlist/item', {
+      params: { playlist_id: playlist_id }
+    }),
+  addPlaylistItem: (playlist_id, music_id) =>
+    api.post('/playlist/item', {
+      playlist_id: playlist_id,
+      music_id: music_id
+    }),
+  deletePlaylistItem: (playlist_id, music_id) =>
+    api.delete('playlist/item', {
+      playlist_id: playlist_id,
+      music_id: music_id
+    })
+};
+
+export const LikeApi = {
+  addLike: (music_id, user_id) => {
+    api.post('/love', {
+      music_id: music_id,
+      user_id: user_id
+    });
+  },
+  deleteLike: (music_id, user_id) => {
+    api.delete('/love', {
+      music_id: music_id,
+      user_id: user_id
+    });
+  }
 };
