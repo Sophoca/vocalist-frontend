@@ -30,7 +30,7 @@ const Library = () => {
       <div>저장한 플레이리스트</div>
       <div className="box">
         {data[0].body.map(el => (
-          <PlaylistCard info={el} setId={setPId} pId={pId} />
+          <PlaylistCard key={el.id} info={el} setId={setPId} pId={pId} />
         ))}
       </div>
     </div>

@@ -30,8 +30,8 @@ export default function PlaylistCard({ info, setId, pId }) {
             {info.title}
           </Typography>
         </CardContent>
-        {pId === info.id && <MusicList list={data.body} />}
       </CardActionArea>
+      {pId === info.id && data && <MusicList list={data.body} />}
     </Card>
   );
 }
