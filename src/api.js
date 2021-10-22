@@ -103,6 +103,11 @@ export const PlaylistApi = {
 };
 
 export const LikeApi = {
+  getLike: user_id => {
+    api.get('/love/list', {
+      user_id: user_id
+    });
+  },
   addLike: (music_id, user_id) => {
     api.post('/love', {
       music_id: music_id,
