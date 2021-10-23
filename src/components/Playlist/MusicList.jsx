@@ -8,17 +8,17 @@ import { pink } from '@mui/material/colors';
 import { ListItemAvatar } from '@mui/material';
 
 export default function MusicList({ list }) {
-  console.log(list);
   return (
     <List>
       {list.map(el => (
         <ListItem
           key={el.id}
-          sx={{ paddingTop: 0, paddingBottom: 0 }}
+          disablePadding
           secondaryAction={
             <div className="flex">
               <IconButton aria-label="delete">
-                <Favorite sx={{ color: el.isLike ? pink[500] : null }} />
+                <Favorite sx={{ color: el.islike ? pink[500] : null }} />
+                {console.log(el)}
               </IconButton>
               <IconButton aria-label="delete">
                 <DeleteIcon />

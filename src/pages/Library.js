@@ -28,7 +28,7 @@ const Library = () => {
       <div>library</div>
       <div style={{ width: 700 }}>좋아요 한 노래</div>
       <div>저장한 플레이리스트</div>
-      <div className="box">
+      <div className="box" style={{ minWidth: '500px' }}>
         {data[0].body.map(el => (
           <PlaylistCard key={el.id} info={el} setId={setPId} pId={pId} />
         ))}
