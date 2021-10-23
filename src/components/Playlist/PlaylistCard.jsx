@@ -9,9 +9,10 @@ import useAsync from '../../useAsync';
 import MusicList from './MusicList';
 
 export default function PlaylistCard({ info, setId, pId }) {
-  async function fetchData(id) {
-    if (id) {
-      const response = await PlaylistApi.getPlaylistItem(id);
+  const user_id = 1;
+  async function fetchData(playlist_id) {
+    if (playlist_id) {
+      const response = await PlaylistApi.getPlaylistItem(playlist_id, user_id);
       return response.data;
     }
     return null;

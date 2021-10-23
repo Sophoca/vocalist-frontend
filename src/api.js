@@ -86,9 +86,9 @@ export const PlaylistApi = {
       id: id
     });
   },
-  getPlaylistItem: playlist_id =>
+  getPlaylistItem: (playlist_id, user_id) =>
     api.get('/playlist/item', {
-      params: { playlist_id: playlist_id }
+      params: { playlist_id: playlist_id, user_id: user_id }
     }),
   addPlaylistItem: (playlist_id, music_id) =>
     api.post('/playlist/item', {

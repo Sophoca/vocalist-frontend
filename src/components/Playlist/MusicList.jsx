@@ -4,8 +4,10 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Favorite from '@mui/icons-material/Favorite';
+import { pink } from '@mui/material/colors';
 
 export default function MusicList({ list }) {
+  console.log(list);
   return (
     <List>
       {list.map(el => (
@@ -15,7 +17,7 @@ export default function MusicList({ list }) {
           secondaryAction={
             <div className="flex">
               <IconButton aria-label="delete">
-                <Favorite />
+                <Favorite sx={{ color: el.isLike ? pink[500] : null }} />
               </IconButton>
               <IconButton aria-label="delete">
                 <DeleteIcon />
