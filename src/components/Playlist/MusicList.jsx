@@ -5,6 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Favorite from '@mui/icons-material/Favorite';
 import { pink } from '@mui/material/colors';
+import { ListItemAvatar } from '@mui/material';
 
 export default function MusicList({ list }) {
   console.log(list);
@@ -25,6 +26,9 @@ export default function MusicList({ list }) {
             </div>
           }
         >
+          <ListItemAvatar>
+            <ListItemText primary={el.number || '000000'} sx={{ width: 80, textAlign: 'center' }} />
+          </ListItemAvatar>
           <ListItemText primary={el.title} secondary={el.artist} />
         </ListItem>
       ))}
