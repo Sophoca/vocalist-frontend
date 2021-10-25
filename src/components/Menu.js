@@ -16,32 +16,32 @@ const Menu = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/chart" activeStyle={activeStyle}>
+          <NavLink to="/chart" activeStyle={activeStyle}>
             Chart
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/library" activeStyle={activeStyle}>
+          <NavLink to="/library" activeStyle={activeStyle}>
             Library
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/search" activeStyle={activeStyle}>
+          <NavLink to="/search" activeStyle={activeStyle}>
             Search
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/setting" activeStyle={activeStyle}>
+          <NavLink to="/setting" activeStyle={activeStyle}>
             Setting
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/curation" activeStyle={activeStyle}>
+          <NavLink to="/curation" activeStyle={activeStyle}>
             Curation
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/test" activeStyle={activeStyle}>
+          <NavLink to="/test" activeStyle={activeStyle}>
             Test
           </NavLink>
         </li>
