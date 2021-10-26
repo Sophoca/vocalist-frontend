@@ -21,7 +21,7 @@ const Home = () => {
         backgroundPosition: 'top center'
       }}
     >
-      <AppBar color="transparent" position="fixed">
+      <AppBar color="transparent" position="static">
         <Toolbar variant={isMobile ? 'dense' : 'regular'}>
           <a href="http://www.vloom.co.kr">
             <img src={logo} alt="logo" style={{ height: isMobile ? 30 : 40 }} />
