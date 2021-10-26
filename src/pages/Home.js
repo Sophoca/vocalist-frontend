@@ -11,7 +11,16 @@ import EmailIcon from '@mui/icons-material/EmailOutlined';
 
 const Home = () => {
   return (
-    <div style={{ width: 100 + '%', height: 100 + 'vh', overflow: 'hidden' }}>
+    <div
+      style={{
+        width: 100 + '%',
+        minWidth: isMobile ? null : 750,
+        height: 100 + 'vh',
+        backgroundImage: `url(${isMobile ? mobileImage : webImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'top center'
+      }}
+    >
       <AppBar color="transparent" position="fixed">
         <Toolbar variant={isMobile ? 'dense' : 'regular'}>
           <a href="http://www.vloom.co.kr">
@@ -21,7 +30,6 @@ const Home = () => {
           <Box sx={{ display: { md: 'flex' } }}>
             <IconButton
               size={isMobile ? 'small' : 'large'}
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               href="https://www.instagram.com/vloom_official/"
@@ -30,7 +38,6 @@ const Home = () => {
             </IconButton>
             <IconButton
               size={isMobile ? 'small' : 'large'}
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
@@ -40,7 +47,6 @@ const Home = () => {
             </IconButton>
             <IconButton
               size={isMobile ? 'small' : 'large'}
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
@@ -51,7 +57,7 @@ const Home = () => {
           </Box>
         </Toolbar>
       </AppBar>
-      <div style={{ backgroundImage: 'url(/web.svg)' }}>
+      {/* <div style={{ backgroundImage: 'url(/web.svg)' }}>
         <img
           src={isMobile ? mobileImage : webImage}
           alt={'web image'}
@@ -61,7 +67,7 @@ const Home = () => {
             objectFit: 'cover'
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
