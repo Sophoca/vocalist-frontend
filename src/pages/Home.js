@@ -15,39 +15,38 @@ const Home = () => {
       <AppBar color="transparent" position="fixed">
         <Toolbar variant={isMobile ? 'dense' : 'regular'}>
           <a href="http://www.vloom.co.kr">
-            <img src={logo} alt="logo" style={{ height: 40 }} />
+            <img src={logo} alt="logo" style={{ height: isMobile ? 30 : 40 }} />
           </a>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { md: 'flex' } }}>
             <IconButton
-              size="large"
+              size={isMobile ? 'small' : 'large'}
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               href="https://www.instagram.com/vloom_official/"
             >
-              <InstagramIcon style={{ color: 'white' }} />
+              <InstagramIcon fontSize={isMobile ? 'medium' : 'large'} style={{ color: 'white' }} />
             </IconButton>
-
             <IconButton
-              size="large"
+              size={isMobile ? 'small' : 'large'}
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
               href="https://www.facebook.com/vloomplay/"
             >
-              <FacebookIcon style={{ color: 'white' }} />
+              <FacebookIcon fontSize={isMobile ? 'medium' : 'large'} style={{ color: 'white' }} />
             </IconButton>
             <IconButton
-              size="large"
+              size={isMobile ? 'small' : 'large'}
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
               href="mailto:kjeonghoon065@gmail.com"
             >
-              <EmailIcon style={{ color: 'white' }} />
+              <EmailIcon fontSize={isMobile ? 'medium' : 'large'} style={{ color: 'white' }} />
             </IconButton>
           </Box>
         </Toolbar>
