@@ -1,7 +1,10 @@
 import React from 'react';
+import webImage from '../images/web.png';
 
 const Home = () => {
-  return <div className="p20">home</div>;
+  return (
+    <img src={webImage} alt={'web image'} style={{ width: 100 + '%', bjectFit: 'cover' }}></img>
+  );
 };
 
 export default Home;
