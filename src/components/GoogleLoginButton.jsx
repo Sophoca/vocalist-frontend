@@ -1,6 +1,7 @@
 import GoogleLogin from 'react-google-login';
 import { GoogleLoginButton } from 'react-social-login-buttons';
-import { LoginApi } from '../api';
+
+import { LoginApi } from 'api';
 require('dotenv').config();
 
 const Google_Key = process.env.REACT_APP_GOOGLE_KEY;

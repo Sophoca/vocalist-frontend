@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CurationApi } from '../../api';
 import useAsync from '../../useAsync';
 import AutoComplete from './AutoComplete';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
+import { Button, Box, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function ItemList({ curation_id, musicLists }) {

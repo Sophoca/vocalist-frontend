@@ -1,6 +1,7 @@
 import AppleSignin from 'react-apple-signin-auth';
 import { AppleLoginButton } from 'react-social-login-buttons';
-import { LoginApi } from '../api';
+
+import { LoginApi } from 'api';
 require('dotenv').config();
 
 /** Apple Signin button */

@@ -1,13 +1,15 @@
 import React from 'react';
 import { isMobile } from 'react-device-detect';
-import webImage from '../images/web.png';
-import mobileImage from '../images/mobile.svg';
-import logo from '../images/cover.svg';
-
 import { AppBar, Toolbar, IconButton, Box } from '@mui/material';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import EmailIcon from '@mui/icons-material/EmailOutlined';
+import {
+  Instagram as InstagramIcon,
+  Facebook as FacebookIcon,
+  EmailOutlined as EmailIcon
+} from '@mui/icons-material';
+
+import webImage from 'images/web.png';
+import mobileImage from 'images/mobile.svg';
+import logo from 'images/cover.svg';
 
 const Home = () => {
   return (

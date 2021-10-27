@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { PlaylistApi } from '../api';
-import PlaylistCard from '../components/Playlist/PlaylistCard';
-import useAsync from '../useAsync';
+
+import { PlaylistApi } from 'api';
+import PlaylistCard from 'components/Playlist/PlaylistCard';
+import useAsync from 'useAsync';
 
 const Library = () => {
   const user_id = 1;

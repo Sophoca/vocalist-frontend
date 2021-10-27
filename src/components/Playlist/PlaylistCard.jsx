@@ -1,12 +1,9 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import { PlaylistApi } from '../../api';
-import useAsync from '../../useAsync';
-import MusicList from './MusicList';
+import { Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
+
+import { PlaylistApi } from 'api';
+import useAsync from 'useAsync';
+import MusicList from 'components/Playlist/MusicList';
 
 export default function PlaylistCard({ info, setId, pId }) {
   const user_id = 1;
@@ -17,6 +14,7 @@ export default function PlaylistCard({ info, setId, pId }) {
     }
     return null;
   }
+
   const [state, refetch] = useAsync(() => fetchData(info.id), []);
   const { loading, data, error } = state;
   return (

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { CurationApi, MusicApi } from '../api';
-import CreateCuration from '../components/Curation/CreateCuration';
-import useAsync from '../useAsync';
-import CurationList from '../components/Curation/CurationList';
-import ItemList from '../components/Curation/ItemList';
-import '../components/Curation/curation.css';
+
+import { CurationApi, MusicApi } from 'api';
+import CreateCuration from 'components/Curation/CreateCuration';
+import useAsync from 'useAsync';
+import CurationList from 'components/Curation/CurationList';
+import ItemList from 'components/Curation/ItemList';
+import 'components/Curation/curation.css';
 
 const Curation = () => {
   async function fetchData() {

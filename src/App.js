@@ -1,9 +1,9 @@
-import './App.css';
+import 'App.css';
 import firebase from './firebase';
-import GoogleLoginButton from './components/GoogleLoginButton';
-import AppleLoginButton from './components/AppleLoginButton';
-import YoutubeSearch from './components/YoutubeSearch';
-import { AddCuration } from './pages/AddCurations';
+import GoogleLoginButton from 'components/GoogleLoginButton';
+import AppleLoginButton from 'components/AppleLoginButton';
+import YoutubeSearch from 'components/YoutubeSearch';
+import { AddCuration } from 'pages/AddCurations';
 
 function App() {
   const music_lists = ['next level', '신호등'];

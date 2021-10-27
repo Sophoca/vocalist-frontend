@@ -1,7 +1,8 @@
 import React from 'react';
-import GoogleLoginButton from '../components/GoogleLoginButton';
-import AppleLoginButton from '../components/AppleLoginButton';
-import YoutubeSearch from '../components/YoutubeSearch';
+
+import GoogleLoginButton from 'components/GoogleLoginButton';
+import AppleLoginButton from 'components/AppleLoginButton';
+import YoutubeSearch from 'components/YoutubeSearch';
 
 const Test = () => {
   const music_lists = ['next level', '신호등', '색안경'];
