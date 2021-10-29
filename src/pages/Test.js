@@ -17,6 +17,7 @@ const Test = () => {
   return (
     <div className="p20">
       <h1>VLOOM</h1>
+      <button onClick={openModal}>modal test</button>
       {/* <div style={{ display: 'flex', gap: 10 }}></div> */}
       <h2>Test google login</h2>
       <GoogleLoginButton></GoogleLoginButton>
@@ -36,7 +37,6 @@ const Test = () => {
           onClickClose={closeModal}
         />
       )}
-      <button onClick={openModal} />
     </div>
   );
 };
