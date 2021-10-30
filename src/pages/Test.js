@@ -8,8 +8,8 @@ import Modal from 'components/Modal';
 const Test = () => {
   const music_lists = ['next level', '신호등', '색안경'];
   const [modalOpen, setModalOpen] = useState(false);
-  const openModal = () => {
-    setModalOpen(true);
+  const handleModal = status => {
+    setModalOpen(status);
   };
   const closeModal = () => {
     setModalOpen(false);
@@ -17,7 +17,7 @@ const Test = () => {
   return (
     <div className="p20">
       <h1>VLOOM</h1>
-      <button onClick={openModal}>modal test</button>
+      <button onClick={() => handleModal(true)}>modal test</button>
       {/* <div style={{ display: 'flex', gap: 10 }}></div> */}
       <h2>Test google login</h2>
       <GoogleLoginButton></GoogleLoginButton>
@@ -34,7 +34,7 @@ const Test = () => {
           className="modal-popup"
           children={null}
           isLayoutScrollEnabled={true}
-          onClickClose={closeModal}
+          onClickClose={() => closeModal(false)}
         />
       )}
     </div>

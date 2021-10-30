@@ -121,3 +121,12 @@ export const LikeApi = {
     });
   }
 };
+
+export const BugReportApi = {
+  getList: () => {
+    api.get('/bug');
+  },
+  reportBug: input => {
+    api.post('/bug', input);
+  }
+};
