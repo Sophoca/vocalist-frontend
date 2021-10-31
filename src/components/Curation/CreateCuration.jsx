@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+import { Box, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 import { CurationApi } from 'api';
 import AutoComplete from 'components/Curation/AutoComplete';
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
 
 export default function CreateCuration({ clist, musicLists, refetch }) {
   const initState = {
@@ -80,65 +68,53 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
   }, [errors]);
 
   return (
-    <>
-      <Snackbar
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        open={Object.keys(errors).length !== 0}
-        autoHideDuration={2000}
-        onClose={handleClose}
-      >
-        <Alert variant="filled" severity="error">
-          Error Occured!
-        </Alert>
-      </Snackbar>
-      <div className="container">
-        <h2>Create Curation</h2>
-        <Box className="box" component="form" onSubmit={handleSubmit} noValidate>
-          <TextField
-            name="title"
-            label="Title"
-            variant="standard"
-            value={inputs.title}
-            error={errors.title}
+    <div className="container">
+      <h2>Create Curation</h2>
+      <Box className="box" component="form" onSubmit={handleSubmit} noValidate>
+        <TextField
+          name="title"
+          label="Title"
+          variant="standard"
+          value={inputs.title}
+          error={errors.title}
+          onChange={onChange}
+        />
+        <TextField
+          name="content"
+          label="Content"
+          variant="standard"
+          multiline
+          maxRows={5}
+          value={inputs.content}
+          error={errors.content}
+          onChange={onChange}
+        />
+        <FormControl>
+          <InputLabel>Type</InputLabel>
+          <Select
+            name="ctype_id"
+            value={inputs.ctype_id}
+            label="Type"
+            error={errors.ctype_id}
             onChange={onChange}
-          />
-          <TextField
-            name="content"
-            label="Content"
-            variant="standard"
-            multiline
-            maxRows={5}
-            value={inputs.content}
-            error={errors.content}
-            onChange={onChange}
-          />
-          <FormControl>
-            <InputLabel>Type</InputLabel>
-            <Select
-              name="ctype_id"
-              value={inputs.ctype_id}
-              label="Type"
-              error={errors.ctype_id}
-              onChange={onChange}
-            >
-              <MenuItem value={0}>None</MenuItem>
-              {clist.map(el => (
-                <MenuItem value={el.id}>{el.title}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <AutoComplete
-            musicLists={musicLists}
-            inputs={inputs}
-            errors={errors}
-            setInputs={setInputs}
-          />
-          <Button variant="contained" type="submit" disabled={submitting}>
-            Create Curation
-          </Button>
-          {/* <ComboBox list={ctype_id} name="curation type" /> */}
-        </Box>
-      </div>
-    </>
+          >
+            <MenuItem value={0}>None</MenuItem>
+            {clist.map(el => (
+              <MenuItem value={el.id}>{el.title}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <AutoComplete
+          musicLists={musicLists}
+          inputs={inputs}
+          errors={errors}
+          setInputs={setInputs}
+        />
+        <Button variant="contained" type="submit" disabled={submitting}>
+          Create Curation
+        </Button>
+        {/* <ComboBox list={ctype_id} name="curation type" /> */}
+      </Box>
+    </div>
   );
 }

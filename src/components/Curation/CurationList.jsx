@@ -1,5 +1,6 @@
 import React from 'react';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
+
 import CurationCard from './CurationCard';
 
 export default function CurationList({ clist, setCId }) {

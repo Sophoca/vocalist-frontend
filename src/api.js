@@ -4,6 +4,11 @@ const api = axios.create({
   baseURL: 'http://www.vloom.co.kr:3000/'
 });
 
+export const BugReportApi = {
+  get: () => api.get('/bug'),
+  post: values => api.post('/bug', values)
+};
+
 export const LoginApi = {
   isExist: (email, type) =>
     api.get('/login', {
@@ -105,7 +110,7 @@ export const PlaylistApi = {
 export const LikeApi = {
   getLike: user_id => {
     api.get('/love/list', {
-      user_id: user_id
+      params: { user_id: user_id }
     });
   },
   addLike: (music_id, user_id) => {
@@ -119,14 +124,5 @@ export const LikeApi = {
       music_id: music_id,
       user_id: user_id
     });
-  }
-};
-
-export const BugReportApi = {
-  getList: () => {
-    api.get('/bug');
-  },
-  reportBug: input => {
-    api.post('/bug', input);
   }
 };
