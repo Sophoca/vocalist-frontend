@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Grid } from '@mui/material';
 
 import { CurationApi, MusicApi } from 'api';
 import CreateCuration from 'components/Curation/CreateCuration';
@@ -31,16 +32,17 @@ const Curation = () => {
   if (!data) return null;
 
   return (
-    <div
-      className="p20 flex"
-      style={{
-        gap: 20
-      }}
-    >
-      <CreateCuration clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
-      <CurationList clist={data[2].body} setCId={setCId} />
-      <ItemList curation_id={cId} musicLists={data[1].body} />
-    </div>
+    <Grid container spacing={1} sx={{ padding: 20 + 'px', minWidth: 1100 + 'px' }}>
+      <Grid item xs={12} sm={4}>
+        <CreateCuration clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
+      </Grid>
+      <Grid item xs={12} sm={4}>
+        <CurationList clist={data[2].body} setCId={setCId} />
+      </Grid>
+      <Grid item xs={12} sm={4}>
+        <ItemList curation_id={cId} musicLists={data[1].body} />
+      </Grid>
+    </Grid>
   );
 };
 

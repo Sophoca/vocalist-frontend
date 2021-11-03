@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, CardActionArea, Divider } from '@mui/material';
+import { Card, CardContent, Typography } from '@mui/material';
 
 export default function BugCard({ info }) {
   return (

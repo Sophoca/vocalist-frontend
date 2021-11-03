@@ -26,8 +26,8 @@ export default function BugList() {
     <div>
       <h2>Bug List</h2>
       <Box className="box" component="div">
-        {data.body.map(el => (
-          <BugCard info={el} />
+        {data.body.map((el, idx) => (
+          <BugCard key={idx} info={el} />
         ))}
       </Box>
     </div>

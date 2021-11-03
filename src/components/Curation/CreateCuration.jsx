@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Box, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 import { CurationApi } from 'api';
@@ -15,35 +15,33 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
 
-  const onChange = e => {
-    const { name, value } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    setInputs({
-      ...inputs, // 기존의 input 객체를 복사한 뒤
-      [name]: value // name 키를 가진 값을 value 로 설정
-    });
-  };
+  const onChange = useCallback(
+    e => {
+      const { name, value } = e.target; // 우선 e.target 에서 name 과 value 를 추출
+      setInputs({
+        ...inputs, // 기존의 input 객체를 복사한 뒤
+        [name]: value // name 키를 가진 값을 value 로 설정
+      });
+    },
+    [inputs]
+  );
 
   const onReset = () => {
     setInputs(initState);
   };
 
-  const validate = values => {
+  const validate = useCallback(values => {
     const errors = {};
     Object.keys(values).map(el => {
       if (values[el] === initState[el] || values[el].length === 0) errors[el] = 'error';
     });
     return errors;
-  };
+  }, []);
 
   const handleSubmit = e => {
     setSubmitting(true);
     e.preventDefault();
     setErrors(validate(inputs));
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') return;
-    setErrors({});
   };
 
   useEffect(() => {

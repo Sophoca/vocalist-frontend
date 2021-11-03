@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, TextField, InputLabel } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 
 import { BugReportApi } from 'api';
-
-import axios from 'axios';
 
 export default function BugReport() {
   const user_id = 1;

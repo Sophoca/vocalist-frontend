@@ -9,9 +9,3 @@
   width: 100%;
   overflow: auto;
 }
-
-.container {
-  margin: 10px;
-  width: 33%;
-  min-width: 300px;
-}
