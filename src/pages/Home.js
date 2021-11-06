@@ -59,17 +59,6 @@ const Home = () => {
           </Box>
         </Toolbar>
       </AppBar>
-      {/* <div style={{ backgroundImage: 'url(/web.svg)' }}>
-        <img
-          src={isMobile ? mobileImage : webImage}
-          alt={'web image'}
-          style={{
-            // position: 'relative',
-            width: 100 + '%',
-            objectFit: 'cover'
-          }}
-        />
-      </div> */}
     </div>
   );
 };
