@@ -5,7 +5,6 @@ import Menu from 'components/Menu';
 
 const Root = () => (
   <BrowserRouter>
-    {/* <Menu></Menu> */}
     <App />
   </BrowserRouter>
 );

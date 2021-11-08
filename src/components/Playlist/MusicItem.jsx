@@ -1,9 +1,6 @@
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
+import { ListItem, ListItemText, ListItemAvatar, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Favorite from '@mui/icons-material/Favorite';
-import { ListItemAvatar } from '@mui/material';
 
 export default function MusicItem({ info }) {
   return (
