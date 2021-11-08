@@ -30,7 +30,7 @@ export default function BugReport() {
   const validate = values => {
     const errors = {};
     Object.keys(values).map(el => {
-      if (values[el].length === 0) errors[el] = 'error';
+      if (values[el].length === 0) errors[el] = true;
     });
     return errors;
   };

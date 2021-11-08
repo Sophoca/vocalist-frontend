@@ -6,23 +6,27 @@ import {
   Facebook as FacebookIcon,
   EmailOutlined as EmailIcon
 } from '@mui/icons-material';
+import styled from 'styled-components';
 
 import webImage from 'images/web.png';
 import mobileImage from 'images/mobile.svg';
 import logo from 'images/cover.svg';
 
+const Background = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-image: url(${isMobile ? mobileImage : webImage});
+  background-size: cover;
+  background-position: top center;
+`;
+
+const Container = styled.div`
+  max-width: ${isMobile ? '100%' : '1080px'};
+`;
+
 const Home = () => {
   return (
-    <div
-      style={{
-        width: 100 + '%',
-        minWidth: isMobile ? null : 750,
-        height: 100 + 'vh',
-        backgroundImage: `url(${isMobile ? mobileImage : webImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'top center'
-      }}
-    >
+    <Background>
       <AppBar color="transparent" position="static">
         <Toolbar variant={isMobile ? 'dense' : 'regular'}>
           <a href="http://www.vloom.co.kr">
@@ -59,7 +63,8 @@ const Home = () => {
           </Box>
         </Toolbar>
       </AppBar>
-    </div>
+      <Container>home</Container>
+    </Background>
   );
 };
 

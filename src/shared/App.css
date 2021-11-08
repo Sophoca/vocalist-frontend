@@ -24,6 +24,11 @@
   color: white;
 }
 
+.App-container {
+  max-width: 1080px;
+  margin: auto 0;
+}
+
 .App-link {
   color: #61dafb;
 }

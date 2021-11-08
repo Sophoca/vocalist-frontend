@@ -25,6 +25,7 @@
     "react-scripts": "4.0.3",
     "react-social-login-buttons": "^3.5.1",
     "react-youtube": "^7.13.1",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1",
     "youtube-search": "^1.1.6"
   },
