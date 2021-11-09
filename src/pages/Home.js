@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Paper, Box } from '@mui/material';
 import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 
@@ -9,6 +9,7 @@ import mobileImage from 'images/mobile.svg';
 
 const Background = styled.div`
   width: 100%;
+  min-width: ${isMobile ? '0' : '600px'};
   height: 100vh;
   // background-image: url(${isMobile ? mobileImage : webImage});
   // background-size: cover;
@@ -27,11 +28,30 @@ const Home = () => {
       <Navbar isMobile={isMobile} />
       <Container>
         <Grid container spacing={2}>
-          <Grid item xs={6}>
-            hi
+          <Grid item xs={12} md={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Paper>Blooming Your voice!</Paper>
+              </Grid>
+              <Grid item xs={12}>
+                <Paper>Description</Paper>
+              </Grid>
+              <Grid item xs={6}>
+                <Paper>Google Store</Paper>
+              </Grid>
+              <Grid item xs={6}>
+                <Paper>App Store</Paper>
+              </Grid>
+              <Grid item xs={12}>
+                <Paper>Experience</Paper>
+              </Grid>
+              <Grid item xs={12}>
+                <Paper>Chart</Paper>
+              </Grid>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            hi
+          <Grid item xs={12} md={6}>
+            <Paper>Image</Paper>
           </Grid>
         </Grid>
       </Container>

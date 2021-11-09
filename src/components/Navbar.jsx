@@ -16,7 +16,10 @@ export default function Navbar({ isMobile }) {
     >
       <Toolbar
         variant={isMobile ? 'dense' : 'regular'}
-        style={{ padding: `0px ${isMobile ? 16 + 'px' : 20 + 'px'}` }}
+        style={{
+          padding: `0px ${isMobile ? 16 + 'px' : 20 + 'px'}`,
+          height: isMobile ? null : 64 + 'px'
+        }}
       >
         <a href="http://www.vloom.co.kr" target="_blank">
           <img
