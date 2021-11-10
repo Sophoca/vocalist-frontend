@@ -27,7 +27,7 @@ const Home = () => {
     <Background>
       <Navbar isMobile={isMobile} />
       <Container>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ flexGrow: 1 }}>
           <Grid item xs={12} md={6}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -51,7 +51,7 @@ const Home = () => {
             </Grid>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Paper>Image</Paper>
+            <Paper style={{ height: 100 + '%' }}>Image</Paper>
           </Grid>
         </Grid>
       </Container>

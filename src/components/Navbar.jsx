@@ -5,7 +5,7 @@ import {
   EmailOutlined as EmailIcon
 } from '@mui/icons-material';
 
-import logo from 'images/logo_50.png';
+import logo from 'images/logo.png';
 
 export default function Navbar({ isMobile }) {
   return (
@@ -25,7 +25,7 @@ export default function Navbar({ isMobile }) {
           <img
             src={logo}
             alt="logo"
-            style={{ height: isMobile ? 20 + 'px' : 32 + 'px', display: 'block' }}
+            style={{ width: 'auto', height: isMobile ? 20 + 'px' : 32 + 'px', display: 'block' }}
           />
         </a>
         <Box sx={{ flexGrow: 1 }} />
