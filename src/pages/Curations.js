@@ -32,7 +32,7 @@ const Curation = () => {
   if (!data) return null;
 
   return (
-    <Grid container spacing={2} sx={{ padding: 20 + 'px' }}>
+    <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
         <CreateCuration clist={data[0].body} musicLists={data[1].body} refetch={refetch} />
       </Grid>

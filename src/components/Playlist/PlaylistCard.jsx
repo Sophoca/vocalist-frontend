@@ -17,6 +17,7 @@ export default function PlaylistCard({ info, setId, pId }) {
 
   const [state, refetch] = useAsync(() => fetchData(info.id), []);
   const { loading, data, error } = state;
+  if (data) console.log(data.body);
   return (
     <Card>
       <CardActionArea onClick={() => setId(info.id)}>

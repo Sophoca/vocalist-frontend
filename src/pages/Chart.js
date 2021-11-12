@@ -1,7 +1,9 @@
 import React from 'react';
 
+const tempData = [];
+
 const Chart = () => {
-  return <div className="p20">chart</div>;
+  return <div>chart</div>;
 };
 
 export default Chart;

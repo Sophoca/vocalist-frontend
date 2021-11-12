@@ -22,7 +22,7 @@ const Home = () => {
             <Paper>App Store</Paper>
           </Grid>
           <Grid item xs={12}>
-            <Paper>Experience</Paper>
+            <Paper>TRY DEMO HERE!</Paper>
           </Grid>
           <Grid item xs={12}>
             <Paper>
