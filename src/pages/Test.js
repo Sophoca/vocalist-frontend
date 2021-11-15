@@ -23,10 +23,10 @@ const Test = () => {
       <BugReport></BugReport>
       <BugList></BugList>
       {/* <div style={{ display: 'flex', gap: 10 }}></div> */}
-      <h2>Test google login</h2>
+      {/* <h2>Test google login</h2>
       <GoogleLoginButton></GoogleLoginButton>
       <h2>Test apple login</h2>
-      <AppleLoginButton></AppleLoginButton>
+      <AppleLoginButton></AppleLoginButton> */}
       {/* <h2>Test youtube API</h2>
       <div style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
         {music_lists.map((el, idx) => (
