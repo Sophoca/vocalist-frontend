@@ -11,7 +11,7 @@ export default function Navbar({ isMobile }) {
   return (
     <AppBar
       elevation={0}
-      position="sticky"
+      position="fixed"
       style={{ backgroundColor: '#ffffff', borderBottom: 'solid 1px #8b63ff' }}
     >
       <Toolbar

@@ -9,16 +9,16 @@ import './App.css';
 
 const Background = styled.div`
   width: 100%;
-  min-width: ${isMobile ? '0' : '600px'};
-  height: 100vh;
+  // min-width: ${isMobile ? '0' : '600px'};
+  // height: 100%;
   // background-size: cover;
   // background-position: top center;
 `;
 
 const Container = styled.div`
   max-width: ${isMobile ? '100%' : '1180px'};
-  margin: ${isMobile ? null : '0 auto'};
-  padding: ${isMobile ? '10px' : '20px 30px'};
+  // margin: ${isMobile ? null : '0 auto'};
+  // padding: ${isMobile ? '10px' : '20px 30px'};
 `;
 
 const App = () => {
