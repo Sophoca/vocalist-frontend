@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Paper, Box } from '@mui/material';
 import styled from 'styled-components';
+
 // Core modules imports are same as usual
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Pagination } from 'swiper';
 // Direct React component imports
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-// import 'swiper/swiper.scss'; // core Swiper
-// import 'swiper/modules/navigation/navigation.scss'; // Navigation module
-// import 'swiper/modules/pagination/pagination.scss'; // Pagination module
+import 'swiper/swiper.scss'; // core Swiper
+import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
 import contentImage from 'images/content_logo.png';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Pagination]);
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: white;
 `;
 
@@ -52,14 +52,14 @@ const Home = () => {
     //   </Grid>
     // </Grid>
     <Container>
-      <div style={{ height: 100 }}>asdf</div>
       <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
-        mousewheel
-        navigation
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={swiper => console.log(swiper)}
+        className="mySwiper"
+        direction={'vertical'}
+        // mousewheel={true}
+        // cssMode={true}
+        pagination={{
+          clickable: true
+        }}
       >
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
