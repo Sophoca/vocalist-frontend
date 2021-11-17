@@ -41,6 +41,10 @@ code {
   height: 100%;
 }
 
+.swiper-pagination-bullet-active {
+  background-color: #5a41a6 !important;
+}
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;

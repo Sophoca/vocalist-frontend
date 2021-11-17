@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { Home, Curation, Test, Library, Chart, Search, Setting } from '../pages';
 import Navbar from 'components/Navbar';
-import './App.css';
 
 const Background = styled.div`
   width: 100%;
@@ -27,7 +26,7 @@ const App = () => {
       <Navbar isMobile={isMobile} />
       <Container>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={() => <Home isMobile={isMobile} />} />
           <Route path="/chart" component={Chart} />
           <Route path="/library" component={Library} />
           <Route path="/search" component={Search} />

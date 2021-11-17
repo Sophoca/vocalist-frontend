@@ -10,6 +10,7 @@ import logo from 'images/logo.png';
 export default function Navbar({ isMobile }) {
   return (
     <AppBar
+      className="navbar"
       elevation={0}
       position="fixed"
       style={{ backgroundColor: '#ffffff', borderBottom: 'solid 1px #8b63ff' }}
@@ -25,7 +26,7 @@ export default function Navbar({ isMobile }) {
           <img
             src={logo}
             alt="logo"
-            style={{ width: 'auto', height: isMobile ? 20 + 'px' : 32 + 'px', display: 'block' }}
+            style={{ width: 'auto', height: isMobile ? 18 + 'px' : 28 + 'px', display: 'block' }}
           />
         </a>
         <Box sx={{ flexGrow: 1 }} />
