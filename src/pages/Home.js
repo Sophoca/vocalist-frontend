@@ -126,7 +126,7 @@ const Content2 = styled.div`
   vertical-align: middle;
 `;
 const ImageContainer = styled.div`
-  width: 140px;
+  width: 100px;
   margin: 0 auto;
   @media only screen and (min-width: 800px) {
     width: 100%;
@@ -146,7 +146,7 @@ const Home = () => {
           clickable: true
         }}
         className="mySwiper"
-        style={{ position: 'fixed', left: 0, top: 0, width: '100vw', marginTop: '48px' }}
+        style={{ position: 'fixed', left: 0, top: 0, width: '100vw', paddingTop: '48px' }}
       >
         <SwiperSlide style={{ background: '#8b63ff' }}>
           <MainContainer className="text-container">
