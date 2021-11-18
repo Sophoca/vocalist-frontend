@@ -60,8 +60,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <!-- <script type="text/javascript" src="calcHeight.js"></script> -->
-
+    <script type="text/javascript">
+      // prevent image download on android
+      $(document).bind('contextmenu', function (e) {
+        return false;
+      });
+    </script>
     <title>VLOOM</title>
   </head>
   <body>
