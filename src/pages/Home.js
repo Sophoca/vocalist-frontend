@@ -20,6 +20,7 @@ SwiperCore.use([Mousewheel, Pagination]);
 const Container = styled.div`
   width: 100%;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: white;
 `;
 
@@ -60,10 +61,12 @@ const ColorButton = styled(Button)`
   width: 160px !important;
   font-size: 14px !important;
   margin: 0 auto !important;
+  padding: 5px !important;
   @media only screen and (min-width: 800px) {
     font-size: 18px !important;
     width: 280px !important;
     margin: 0 !important;
+    padding: 10px !important;
   } ;
 `;
 

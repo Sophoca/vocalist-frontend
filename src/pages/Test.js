@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserTypes, OsTypes } from 'react-device-detect';
 
 import GoogleLoginButton from 'components/GoogleLoginButton';
 import AppleLoginButton from 'components/AppleLoginButton';
@@ -16,6 +17,8 @@ const Test = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  console.log(BrowserTypes, OsTypes);
   return (
     <div className="p20" style={{ marginTop: '68px' }}>
       <h1>VLOOM</h1>
