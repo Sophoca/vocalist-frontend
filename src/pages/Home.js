@@ -61,7 +61,6 @@ const CaseContainer = styled.div`
   margin: 0 auto;
   gap: 10px;
   text-align: center;
-  align-items: center;
   justify-content: space-around;
   @media only screen and (min-width: 800px) {
     flex-direction: row;
@@ -70,10 +69,12 @@ const CaseContainer = styled.div`
 
 const CaseItem = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 140px;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
   @media only screen and (min-width: 800px) {
     width: 240px;
+    flex-direction: column;
   }
 `;
 
@@ -119,6 +120,18 @@ const Content = styled.div`
 `;
 const Content2 = styled.div`
   font-size: 0.6em;
+  width: 200px;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+`;
+const ImageContainer = styled.div`
+  width: 140px;
+  margin: 0 auto;
+  @media only screen and (min-width: 800px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 const Home = () => {
@@ -133,7 +146,7 @@ const Home = () => {
           clickable: true
         }}
         className="mySwiper"
-        style={{ position: 'fixed', left: 0, top: 0, width: '100vw' }}
+        style={{ position: 'fixed', left: 0, top: 0, width: '100vw', marginTop: '48px' }}
       >
         <SwiperSlide style={{ background: '#8b63ff' }}>
           <MainContainer className="text-container">
@@ -165,33 +178,21 @@ const Home = () => {
             </div>
             <CaseContainer>
               <CaseItem>
-                <LogoContainer style={{ width: '100%' }}>
-                  <img
-                    src={contentImage}
-                    alt=""
-                    style={{ width: '80%', height: 'auto', margin: '0 auto' }}
-                  />
-                </LogoContainer>
+                <ImageContainer>
+                  <img src={contentImage} alt="" />
+                </ImageContainer>
                 <Content2>처음 만난 사람들과 함께</Content2>
               </CaseItem>
               <CaseItem>
-                <LogoContainer style={{ width: '100%' }}>
-                  <img
-                    src={contentImage}
-                    alt=""
-                    style={{ width: '80%', height: 'auto', margin: '0 auto' }}
-                  />
-                </LogoContainer>
+                <ImageContainer>
+                  <img src={contentImage} alt="" />
+                </ImageContainer>
                 <Content2>회식 자리로 간 노래방</Content2>
               </CaseItem>
               <CaseItem>
-                <LogoContainer style={{ width: '100%' }}>
-                  <img
-                    src={contentImage}
-                    alt=""
-                    style={{ width: '80%', height: 'auto', margin: '0 auto' }}
-                  />
-                </LogoContainer>
+                <ImageContainer>
+                  <img src={contentImage} alt="" />
+                </ImageContainer>
                 <Content2>노래방에서 인싸가 되고 싶을 때</Content2>
               </CaseItem>
             </CaseContainer>
