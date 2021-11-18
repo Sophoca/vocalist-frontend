@@ -2,6 +2,15 @@
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+
+  /* prevent drag */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* prevent image download on ios*/
+  -webkit-touch-callout: none;
 }
 
 img {
@@ -10,6 +19,9 @@ img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: auto;
   -ms-interpolation-mode: nearest-neighbor;
+
+  /* prevent image download on PC*/
+  pointer-events: none;
 }
 
 body {

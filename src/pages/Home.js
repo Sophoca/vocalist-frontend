@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Paper, Box } from '@mui/material';
+import { Button } from '@mui/material';
 import styled from 'styled-components';
 
 // Core modules imports are same as usual
@@ -12,6 +12,8 @@ import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
 import contentImage from 'images/content_logo.png';
 import logoWhite from 'images/logo_white.png';
+import cover from 'images/cover.svg';
+import logo from 'images/logo.svg';
 
 SwiperCore.use([Mousewheel, Pagination]);
 
@@ -27,26 +29,44 @@ const MainContainer = styled.div`
   justify-content: center;
   font-size: 16px;
   text-align: center;
-  gap: 10px;
-  @media only screen and (min-width: 768px) {
-    width: 100%;
+  gap: 20px;
+  padding: 0 16px;
+  width: 100%;
+  @media only screen and (min-width: 800px) {
     justify-content: flex-start;
     font-size: 32px;
-    margin-left: 60px;
     text-align: left;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+  @media only screen and (min-width: 1180px) {
+    width: 1180px;
   }
 `;
 
 const LogoContainer = styled.div`
-  display: flex;
-  text-align: center;
-  width: 300px;
-  @media only screen and (min-width: 768px) {
-    width: 600px;
+  width: 250px;
+  margin: 0 auto;
+  @media only screen and (min-width: 800px) {
+    width: 550px;
+    margin: 0;
   }
 `;
 
-const Home = ({ isMobile }) => {
+const ColorButton = styled(Button)`
+  color: white !important;
+  border: 2px solid white !important;
+  width: 160px !important;
+  font-size: 14px !important;
+  margin: 0 auto !important;
+  @media only screen and (min-width: 800px) {
+    font-size: 18px !important;
+    width: 280px !important;
+    margin: 0 !important;
+  } ;
+`;
+
+const Home = () => {
   return (
     <Container>
       <Swiper
@@ -61,13 +81,18 @@ const Home = ({ isMobile }) => {
       >
         <SwiperSlide style={{ background: '#8b63ff' }}>
           <MainContainer className="text-container">
-            <div style={{ fontSize: '2em', color: 'white' }}>Blooming Your Voice!</div>
+            {/* <div style={{ fontSize: '2em', color: 'white' }}>Blooming Your Voice!</div> */}
             <LogoContainer>
-              <img src={logoWhite} alt="logo" />
+              <img src={cover} alt="logo" style={{ display: 'block' }} />
             </LogoContainer>
+            <ColorButton variant="outlined">Download</ColorButton>
           </MainContainer>
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>
+          <LogoContainer>
+            <img src={logo} alt="logo" style={{ display: 'block' }} />
+          </LogoContainer>
+        </SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
       </Swiper>
