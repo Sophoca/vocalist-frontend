@@ -71,7 +71,7 @@ const CaseContainer = styled.div`
 const CaseItem = styled.div`
   display: flex;
   flex-direction: column;
-  width: 180px;
+  width: 140px;
   @media only screen and (min-width: 800px) {
     width: 240px;
   }
@@ -114,7 +114,6 @@ const PurpleButton = styled(Button)`
 const Title = styled.div`
   font-size: 1.4em;
 `;
-
 const Content = styled.div`
   font-size: 0.8em;
 `;
