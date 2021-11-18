@@ -11,6 +11,8 @@
 
   /* prevent image download on ios*/
   -webkit-touch-callout: none;
+
+  word-break: keep-all;
 }
 
 img {
@@ -46,6 +48,10 @@ code {
 
 .gap10 {
   gap: 10px;
+}
+
+.column {
+  flex-direction: column;
 }
 
 .swiper {
