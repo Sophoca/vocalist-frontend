@@ -38,6 +38,7 @@ const MainContainer = styled.div`
     text-align: left;
     margin: 0 auto;
     padding: 0 30px;
+    gap: 30px;
   }
   @media only screen and (min-width: 1180px) {
     width: 1180px;
@@ -78,6 +79,7 @@ const Home = () => {
           clickable: true
         }}
         className="mySwiper"
+        style={{ position: 'fixed', left: 0, top: 0, width: '100vw' }}
       >
         <SwiperSlide style={{ background: '#8b63ff' }}>
           <MainContainer className="text-container">

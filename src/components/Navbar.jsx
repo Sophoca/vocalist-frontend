@@ -52,7 +52,7 @@ export default function Navbar({ isMobile }) {
               size={isMobile ? 'small' : 'large'}
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              href="https://www.instagram.com/vloom_official/"
+              onClick={() => window.open('https://www.instagram.com/vloom_official/')}
             >
               <InstagramIcon fontSize={isMobile ? 'medium' : 'large'} style={{ color: 'grey' }} />
             </IconButton>
@@ -61,7 +61,7 @@ export default function Navbar({ isMobile }) {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
-              href="https://www.facebook.com/vloomplay/"
+              onClick={() => window.open('https://www.facebook.com/vloomplay/')}
             >
               <FacebookIcon fontSize={isMobile ? 'medium' : 'large'} style={{ color: 'grey' }} />
             </IconButton>

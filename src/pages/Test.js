@@ -17,7 +17,7 @@ const Test = () => {
     setModalOpen(false);
   };
   return (
-    <div className="p20">
+    <div className="p20" style={{ marginTop: '68px' }}>
       <h1>VLOOM</h1>
       <button onClick={() => handleModal(true)}>modal test</button>
       <BugReport></BugReport>
