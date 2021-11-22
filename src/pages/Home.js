@@ -10,17 +10,27 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
-import contentImage from 'images/content_logo.png';
+import contentImage1 from 'images/handshake.png';
+import contentImage2 from 'images/tambourine.png';
+import contentImage3 from 'images/mirror-ball.png';
+import mockup from 'images/mockup.png';
 import logoWhite from 'images/logo_white.png';
 import cover from 'images/cover.svg';
 import logo from 'images/logo.svg';
 
 SwiperCore.use([Mousewheel, Pagination]);
 
-const Container = styled.div`
+const Background = styled.div`
   width: 100%;
   height: 100vh;
   background: white;
+`;
+
+const Container = styled.div`
+  width: 100%;
+  @media only screen and (min-width: 1180px) {
+    width: 1180px;
+  }
 `;
 
 const MainContainer = styled.div`
@@ -39,9 +49,6 @@ const MainContainer = styled.div`
     margin: 0 auto;
     padding: 0 30px;
     gap: 30px;
-  }
-  @media only screen and (min-width: 1180px) {
-    width: 1180px;
   }
 `;
 
@@ -114,12 +121,14 @@ const PurpleButton = styled(Button)`
 
 const Title = styled.div`
   font-size: 1.4em;
+  font-weight: bold;
 `;
 const Content = styled.div`
-  font-size: 0.8em;
+  font-size: 0.9em;
+  line-height: 150%;
 `;
 const Content2 = styled.div`
-  font-size: 0.6em;
+  font-size: 0.7em;
   width: 200px;
   height: 100%;
   display: table-cell;
@@ -128,15 +137,17 @@ const Content2 = styled.div`
 const ImageContainer = styled.div`
   width: 100px;
   margin: 0 auto;
+
   @media only screen and (min-width: 800px) {
     width: 100%;
     margin: 0;
+    padding: 30px;
   }
 `;
 
 const Home = () => {
   return (
-    <Container>
+    <Background>
       <Swiper
         direction={'vertical'}
         slidesPerView={1}
@@ -149,74 +160,96 @@ const Home = () => {
         style={{ position: 'fixed', left: 0, top: 0, width: '100vw', paddingTop: '48px' }}
       >
         <SwiperSlide style={{ background: '#8b63ff' }}>
-          <MainContainer className="text-container">
-            {/* <div style={{ fontSize: '2em', color: 'white' }}>Blooming Your Voice!</div> */}
-            <LogoContainer>
-              <img src={cover} alt="logo" />
-            </LogoContainer>
-            <WhiteButton variant="outlined" onClick={() => alert('아직 준비 중인 기능입니다!')}>
-              Download
-            </WhiteButton>
-          </MainContainer>
+          <Container>
+            <MainContainer className="text-container">
+              {/* <div style={{ fontSize: '2em', color: 'white' }}>Blooming Your Voice!</div> */}
+              <LogoContainer>
+                <img src={cover} alt="logo" />
+              </LogoContainer>
+              <WhiteButton variant="outlined" onClick={() => alert('아직 준비 중인 기능입니다!')}>
+                Download
+              </WhiteButton>
+            </MainContainer>
+          </Container>
         </SwiperSlide>
         <SwiperSlide>
-          <MainContainer style={{ justifyContent: 'center', textAlign: 'center' }}>
-            <Title>듣기엔 좋은데 부르기엔 어려워</Title>
-            <div className="flex column gap10">
-              <Content>분명 들을 때는 따라 부를 수 있을 것 같았는데,</Content>
-              <Content>막상 불러보니 내 음역대와 맞지 않아 부르기 어려웠던 적 있으신가요?</Content>
-            </div>
-            {/* <img src={logo} alt="logo" style={{ display: 'block' }} /> */}
-          </MainContainer>
+          <Container>
+            <MainContainer style={{ justifyContent: 'center', textAlign: 'center' }}>
+              <CaseItem>
+                <ImageContainer>
+                  <img src={contentImage1} alt="" />
+                </ImageContainer>
+              </CaseItem>
+              <Title>듣기엔 좋은데 부르기엔 어려워</Title>
+              <div className="flex column gap10">
+                <Content>분명 들을 때는 따라 부를 수 있을 것 같았는데,</Content>
+                <Content>
+                  막상 불러보니 <b>내 음역대와 맞지 않아 부르기 어려웠던 적</b> 있으신가요?
+                </Content>
+              </div>
+              {/* <img src={logo} alt="logo" style={{ display: 'block' }} /> */}
+            </MainContainer>
+          </Container>
         </SwiperSlide>
         <SwiperSlide>
-          <MainContainer style={{ justifyContent: 'center', textAlign: 'center' }}>
-            <Title>함께 하는 노래방, 어떤 노래를 불러야 할까?</Title>
-            <div className="flex column gap10">
-              <Content>다른 사람들과 노래방을 갈 때, 어떤 노래를 불러야 할지 몰라서</Content>
-              <Content>몰래 음악 스트리밍 사이트에서 검색해본 적도 있으신가요?</Content>
-            </div>
-            <CaseContainer>
-              <CaseItem>
-                <ImageContainer>
-                  <img src={contentImage} alt="" />
-                </ImageContainer>
-                <Content2>처음 만난 사람들과 함께</Content2>
-              </CaseItem>
-              <CaseItem>
-                <ImageContainer>
-                  <img src={contentImage} alt="" />
-                </ImageContainer>
-                <Content2>회식 자리로 간 노래방</Content2>
-              </CaseItem>
-              <CaseItem>
-                <ImageContainer>
-                  <img src={contentImage} alt="" />
-                </ImageContainer>
-                <Content2>노래방에서 인싸가 되고 싶을 때</Content2>
-              </CaseItem>
-            </CaseContainer>
-          </MainContainer>
+          <Container>
+            <MainContainer style={{ justifyContent: 'center', textAlign: 'center' }}>
+              <Title>함께 하는 노래방, 어떤 노래를 불러야 할까?</Title>
+              <div className="flex column gap10">
+                <Content>다른 사람들과 노래방을 갈 때, 어떤 노래를 불러야 할지 몰라서</Content>
+                <Content>몰래 음악 스트리밍 사이트에서 검색해본 적도 있으신가요?</Content>
+              </div>
+              <CaseContainer>
+                <CaseItem>
+                  <ImageContainer>
+                    <img src={contentImage1} alt="" />
+                  </ImageContainer>
+                  <Content2>처음 만난 사람들과</Content2>
+                  <Content2>노래방을 가야할 때</Content2>
+                </CaseItem>
+                <CaseItem>
+                  <ImageContainer>
+                    <img src={contentImage2} alt="" />
+                  </ImageContainer>
+                  <Content2>회식 자리로 간 노래방</Content2>
+                  <Content2>노래방을 가야할 때</Content2>
+                </CaseItem>
+                <CaseItem>
+                  <ImageContainer>
+                    <img src={contentImage3} alt="" />
+                  </ImageContainer>
+                  <Content2>노래방에서</Content2>
+                  <Content2>인싸가 되고 싶을 때</Content2>
+                </CaseItem>
+              </CaseContainer>
+            </MainContainer>
+          </Container>
         </SwiperSlide>
         <SwiperSlide>
-          <MainContainer>
-            <Title>블룸이 알려줄게요!</Title>
-            <div className="flex column gap10">
-              <Content>내 목소리에 딱 맞는 노래, 내가 부르기 좋은 노래,</Content>
-              <Content>이제 블룸이 알려드리겠습니다.</Content>
-            </div>
-            <div style={{ height: '20px' }} />
-            <div className="flex column gap10">
-              <Content>블룸에서 당신의 목소리를 꽃 피워보세요.</Content>
-              <Content>Blooming Your Voice!</Content>
-            </div>
-            <PurpleButton variant="outlined" onClick={() => alert('아직 준비 중인 기능입니다!')}>
-              체험하기
-            </PurpleButton>
-          </MainContainer>
+          <Container className="flex">
+            <MainContainer sytle={{ flexGrow: 1 }}>
+              <Title style={{ fontSize: '1.8em', color: '#8b63ff' }}>블룸이 알려줄게요!</Title>
+              <div className="flex column gap10">
+                <Content>내 목소리에 딱 맞는 노래,</Content>
+                <Content>내가 부르기 좋은 노래,</Content>
+                <Content>이제 블룸이 알려드리겠습니다.</Content>
+              </div>
+              <div style={{ height: '20px' }} />
+              <div className="flex column gap10">
+                <Content>블룸에서 당신의 목소리를 꽃 피워보세요.</Content>
+                <Content>Blooming Your Voice!</Content>
+              </div>
+              <PurpleButton variant="outlined" onClick={() => alert('아직 준비 중인 기능입니다!')}>
+                체험하기
+              </PurpleButton>
+            </MainContainer>
+            <ImageContainer style={{ flexGrow: 1 }}>
+              <img src={mockup} alt="" />
+            </ImageContainer>
+          </Container>
         </SwiperSlide>
       </Swiper>
-    </Container>
+    </Background>
   );
 };
 
