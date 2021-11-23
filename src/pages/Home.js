@@ -14,6 +14,7 @@ import contentImage from 'images/microphone-2.png';
 import contentImage1 from 'images/handshake.png';
 import contentImage2 from 'images/tambourine.png';
 import contentImage3 from 'images/mirror-ball.png';
+import mockupLogo from 'images/mockup_logo2.png';
 import mockup from 'images/mockup.png';
 import logoWhite from 'images/logo_white.png';
 import cover from 'images/cover.svg';
@@ -177,7 +178,15 @@ const Home = () => {
         className="mySwiper"
         style={{ position: 'fixed', left: 0, top: 0, width: '100vw', paddingTop: '48px' }}
       >
-        <SwiperSlide style={{ background: '#8b63ff' }}>
+        <SwiperSlide
+          style={{
+            background: `url(${mockupLogo})`,
+            backgroundColor: '#8b63ff',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: '90% center',
+            backgroundSize: '20%'
+          }}
+        >
           <Container>
             <MainContainer className="text-container">
               {/* <div style={{ fontSize: '2em', color: 'white' }}>Blooming Your Voice!</div> */}

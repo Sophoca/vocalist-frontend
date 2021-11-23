@@ -5,3 +5,4 @@ export { default as Search } from './Search';
 export { default as Setting } from './Setting';
 export { default as Curation } from './Curations';
 export { default as Test } from './Test';
+export { default as Demo } from './Demo';
