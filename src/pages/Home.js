@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
+import contentImage from 'images/microphone-2.png';
 import contentImage1 from 'images/handshake.png';
 import contentImage2 from 'images/tambourine.png';
 import contentImage3 from 'images/mirror-ball.png';
@@ -37,14 +38,14 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   gap: 20px;
   padding: 0 16px;
   width: 100%;
   @media only screen and (min-width: 800px) {
     justify-content: flex-start;
-    font-size: 32px;
+    font-size: 30px;
     text-align: left;
     margin: 0 auto;
     padding: 0 30px;
@@ -177,7 +178,7 @@ const Home = () => {
             <MainContainer style={{ justifyContent: 'center', textAlign: 'center' }}>
               <CaseItem>
                 <ImageContainer>
-                  <img src={contentImage1} alt="" />
+                  <img src={contentImage} alt="" />
                 </ImageContainer>
               </CaseItem>
               <Title>듣기엔 좋은데 부르기엔 어려워</Title>
@@ -244,7 +245,7 @@ const Home = () => {
               </PurpleButton>
             </MainContainer>
             <ImageContainer style={{ flexGrow: 1 }}>
-              <img src={mockup} alt="" />
+              <img src={mockup} alt="" style={{ objectFit: 'contain' }} />
             </ImageContainer>
           </Container>
         </SwiperSlide>
