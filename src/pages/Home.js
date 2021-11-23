@@ -183,8 +183,8 @@ const Home = () => {
             background: `url(${mockupLogo})`,
             backgroundColor: '#8b63ff',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: '90% center',
-            backgroundSize: '20%'
+            backgroundPosition: '80% center',
+            backgroundSize: '18%'
           }}
         >
           <Container>
