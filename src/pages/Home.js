@@ -52,6 +52,23 @@ const MainContainer = styled.div`
     gap: 30px;
   }
 `;
+const MainContainer2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  gap: 20px;
+  padding: 0 16px;
+  width: 100%;
+  @media only screen and (min-width: 800px) {
+    font-size: 30px;
+    text-align: left;
+    margin: 0 auto;
+    padding: 0 30px;
+    gap: 30px;
+  }
+`;
 
 const LogoContainer = styled.div`
   width: 250px;
@@ -174,7 +191,7 @@ const Home = () => {
           </Container>
         </SwiperSlide>
         <SwiperSlide>
-          <Container>
+          <Container style={{ paddingBottom: '30px' }}>
             <MainContainer style={{ justifyContent: 'center', textAlign: 'center' }}>
               <CaseItem>
                 <ImageContainer>
@@ -228,7 +245,14 @@ const Home = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Container className="flex">
-            <MainContainer sytle={{ flexGrow: 1 }}>
+            <MainContainer2
+              sytle={{
+                flexGrow: 1,
+                paddingTop: '20px',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
               <Title style={{ fontSize: '1.8em', color: '#8b63ff' }}>블룸이 알려줄게요!</Title>
               <div className="flex column gap10">
                 <Content>내 목소리에 딱 맞는 노래,</Content>
@@ -243,7 +267,7 @@ const Home = () => {
               <PurpleButton variant="outlined" onClick={() => alert('아직 준비 중인 기능입니다!')}>
                 체험하기
               </PurpleButton>
-            </MainContainer>
+            </MainContainer2>
             <ImageContainer style={{ flexGrow: 1 }}>
               <img src={mockup} alt="" style={{ objectFit: 'contain' }} />
             </ImageContainer>
