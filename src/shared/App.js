@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 
-import { Home, Curation, Test, Library, Chart, Search, Setting } from '../pages';
+import { Home, Curation, Demo, Test, Library, Chart, Search, Setting } from '../pages';
 import Navbar from 'components/Navbar';
 
 const Background = styled.div`
@@ -38,6 +38,7 @@ const App = () => {
           <Route path="/search" component={Search} />
           <Route path="/setting" component={Setting} />
           <Route path="/curation" component={Curation} />
+          <Route path="/demo" component={Demo} />
           <Route path="/test" component={Test} />
           <Route component={Home} />
         </Switch>

@@ -273,9 +273,9 @@ const Home = () => {
                 <Content>블룸에서 당신의 목소리를 꽃 피워보세요.</Content>
                 <Content>Blooming Your Voice!</Content>
               </div>
-              <PurpleButton variant="outlined" onClick={() => alert('아직 준비 중인 기능입니다!')}>
-                체험하기
-              </PurpleButton>
+              <Link to="/demo">
+                <PurpleButton variant="outlined">체험하기</PurpleButton>
+              </Link>
             </MainContainer2>
             <ImageContainer style={{ flexGrow: 1 }}>
               <img src={mockup} alt="" style={{ objectFit: 'contain' }} />
