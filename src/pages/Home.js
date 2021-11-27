@@ -151,8 +151,8 @@ const Content2 = styled.div`
   font-size: 0.7em;
   width: 200px;
   height: 100%;
-  display: table-cell;
-  vertical-align: middle;
+  // display: table-cell;
+  // vertical-align: middle;
 `;
 const ImageContainer = styled.div`
   width: 100px;
@@ -241,22 +241,28 @@ const Home = ({ isMobile }) => {
                   <ImageContainer>
                     <img src={contentImage1} alt="" />
                   </ImageContainer>
-                  <Content2>처음 만난 사람들과</Content2>
-                  <Content2>노래방을 가야할 때</Content2>
+                  <div className="flex column">
+                    <Content2>처음 만난 사람들과</Content2>
+                    <Content2>노래방을 가야할 때</Content2>
+                  </div>
                 </CaseItem>
                 <CaseItem>
                   <ImageContainer>
                     <img src={contentImage2} alt="" />
                   </ImageContainer>
-                  <Content2>회식 자리로 간 노래방</Content2>
-                  <Content2>노래방을 가야할 때</Content2>
+                  <div className="flex column">
+                    <Content2>회식 자리로 간 노래방</Content2>
+                    <Content2>노래방을 가야할 때</Content2>
+                  </div>
                 </CaseItem>
                 <CaseItem>
                   <ImageContainer>
                     <img src={contentImage3} alt="" />
                   </ImageContainer>
-                  <Content2>노래방에서</Content2>
-                  <Content2>인싸가 되고 싶을 때</Content2>
+                  <div className="flex column">
+                    <Content2>노래방에서</Content2>
+                    <Content2>인싸가 되고 싶을 때</Content2>
+                  </div>
                 </CaseItem>
               </CaseContainer>
             </MainContainer>
