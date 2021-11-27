@@ -171,3 +171,38 @@ code {
   height: 100%;
   object-fit: cover;
 }
+
+.my-swiper-slide {
+  background-color: #8b63ff;
+  -webkit-transition: width 2s, height 2s, background 2s, -webkit-transform 2s;
+  transition: width 2s, height 2s, background 2s, transform 2s;
+}
+
+@media only screen and (min-width: 1000px) {
+  .my-swiper-slide {
+    background: url('./images/mockup_logo2.png');
+    background-color: #8b63ff;
+    background-repeat: no-repeat;
+    background-position: 80% center;
+    background-size: 18%;
+    transition: all ease 2s 0s;
+  }
+}
+
+.demo-container {
+  flex-direction: column;
+  gap: 80px;
+}
+
+.mockup-image {
+  visibility: hidden;
+  height: 0;
+}
+@media only screen and (min-width: 800px) {
+  .demo-container {
+    flex-direction: row;
+  }
+  .mockup-image {
+    visibility: visible;
+  }
+}

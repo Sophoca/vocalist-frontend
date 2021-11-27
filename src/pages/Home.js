@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import styled from 'styled-components';
@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
+import StyledLink from 'components/StyledLink';
 import contentImage from 'images/microphone-2.png';
 import contentImage1 from 'images/handshake.png';
 import contentImage2 from 'images/tambourine.png';
@@ -164,7 +165,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const Home = () => {
+const Home = ({ isMobile }) => {
   return (
     <Background>
       <Swiper
@@ -176,16 +177,25 @@ const Home = () => {
           clickable: true
         }}
         className="mySwiper"
-        style={{ position: 'fixed', left: 0, top: 0, width: '100vw', paddingTop: '48px' }}
+        style={{
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          width: '100vw',
+          paddingTop: isMobile ? '48px' : '64px'
+        }}
       >
         <SwiperSlide
-          style={{
-            background: `url(${mockupLogo})`,
-            backgroundColor: '#8b63ff',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: '80% center',
-            backgroundSize: '18%'
-          }}
+          className="my-swiper-slide"
+          style={
+            {
+              // background: `url(${mockupLogo})`,
+              // backgroundColor: '#8b63ff',
+              // backgroundRepeat: 'no-repeat',
+              // backgroundPosition: '80% center',
+              // backgroundSize: '18%'
+            }
+          }
         >
           <Container>
             <MainContainer className="text-container">
@@ -253,7 +263,7 @@ const Home = () => {
           </Container>
         </SwiperSlide>
         <SwiperSlide>
-          <Container className="flex">
+          <Container className="flex demo-container">
             <MainContainer2
               sytle={{
                 flexGrow: 1,
@@ -273,11 +283,11 @@ const Home = () => {
                 <Content>블룸에서 당신의 목소리를 꽃 피워보세요.</Content>
                 <Content>Blooming Your Voice!</Content>
               </div>
-              <Link to="/demo">
+              <StyledLink to="/demo">
                 <PurpleButton variant="outlined">체험하기</PurpleButton>
-              </Link>
+              </StyledLink>
             </MainContainer2>
-            <ImageContainer style={{ flexGrow: 1 }}>
+            <ImageContainer className="mockup-image" style={{ flexGrow: 1 }}>
               <img src={mockup} alt="" style={{ objectFit: 'contain' }} />
             </ImageContainer>
           </Container>

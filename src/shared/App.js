@@ -28,9 +28,9 @@ const Container = styled.div`
 
 const App = () => {
   return (
-    <Background>
+    <Background className="background">
       <Navbar isMobile={isMobile} />
-      <Container>
+      <Container className="container">
         <Switch>
           <Route exact path="/" component={() => <Home isMobile={isMobile} />} />
           <Route path="/chart" component={Chart} />
