@@ -126,3 +126,14 @@ export const LikeApi = {
     });
   }
 };
+
+export const DemoApi = {
+  getAll: () =>
+    api.get('/dev/demo', {
+      params: { id: 0 }
+    }),
+  getList: list_id =>
+    api.get('/dev/demo', {
+      params: { id: list_id }
+    })
+};

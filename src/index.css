@@ -204,5 +204,6 @@ code {
   }
   .mockup-image {
     visibility: visible;
+    height: auto;
   }
 }

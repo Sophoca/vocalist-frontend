@@ -182,7 +182,7 @@ const Home = ({ isMobile }) => {
           left: 0,
           top: 0,
           width: '100vw',
-          paddingTop: isMobile ? '48px' : '64px'
+          paddingTop: isMobile ? '48px' : '65px'
         }}
       >
         <SwiperSlide

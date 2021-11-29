@@ -10,11 +10,12 @@ async function getYoutubeID({ keyword }) {
   const params = {
     key: Youtube_Key,
     q: keyword,
-    part: 'snippet',
+    part: 'id',
     maxResults: 1,
     type: 'video'
   };
   const response = await axios.get('/search', { params });
+  console.log(response);
   return response.data;
 }
 
@@ -30,8 +31,8 @@ const VideoPlayer = props => (
       ></iframe>
     </div>
     <div className="video-player-details">
-      <h3>{props.video.snippet.title}</h3>
-      <div>{props.video.snippet.description}</div>
+      {/* <h3>{props.video.snippet.title}</h3>
+      <div>{props.video.snippet.description}</div> */}
     </div>
   </div>
 );

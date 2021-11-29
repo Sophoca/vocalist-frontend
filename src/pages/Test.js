@@ -30,12 +30,12 @@ const Test = () => {
       <GoogleLoginButton></GoogleLoginButton>
       <h2>Test apple login</h2>
       <AppleLoginButton></AppleLoginButton> */}
-      {/* <h2>Test youtube API</h2>
+      <h2>Test youtube API</h2>
       <div style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
         {music_lists.map((el, idx) => (
           <YoutubeSearch key={idx} keyword={el}></YoutubeSearch>
         ))}
-      </div> */}
+      </div>
       {modalOpen && (
         <Modal
           className="modal-popup"
