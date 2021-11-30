@@ -22,7 +22,7 @@ const Test = ({ match }) => {
 
   const [state, refetch] = useAsync(fetchData, []);
   const { loading, data, error } = state;
-  const [id, setId] = useState(0);
+  const [id, setId] = useState([0]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>error</div>;
@@ -42,7 +42,7 @@ const Test = ({ match }) => {
           </div>
         ))}
       </div>
-      <StyledLink to={`${match.url}/${id}`}>
+      <StyledLink to={`${match.url}/${id.toString()}`}>
         <button>결과확인</button>
       </StyledLink>
     </div>

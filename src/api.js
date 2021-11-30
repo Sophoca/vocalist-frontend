@@ -71,6 +71,10 @@ export const MusicApi = {
   getMusic: (id, user_id) =>
     api.get(`/music`, {
       params: { id: id, user_id: user_id }
+    }),
+  getCluster: cluster =>
+    api.get('/music/rec/cluster', {
+      params: { cluster: cluster, user_id: -1 }
     })
 };
 
