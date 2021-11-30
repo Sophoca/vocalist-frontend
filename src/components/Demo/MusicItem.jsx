@@ -35,26 +35,7 @@ export default function MusicItem({ infos, match }) {
       <Box className="box">
         <List dense={isMobile} sx={{ width: '100%', maxWidth: 700, bgcolor: 'background.paper' }}>
           {infos.map(info => (
-            <ListItem
-              dense={isMobile}
-              key={info.id}
-              disablePadding
-              secondaryAction={
-                <Checkbox
-                  icon={<FavoriteBorder />}
-                  checkedIcon={<Favorite />}
-                  disabled={checked.length === 3 && checked.indexOf(info) === -1}
-                  checked={checked.indexOf(info) !== -1}
-                  onChange={() => handleChange(info)}
-                  sx={{
-                    color: '#7655D9',
-                    '&.Mui-checked': {
-                      color: '#8b63ff'
-                    }
-                  }}
-                />
-              }
-            >
+            <ListItem dense={isMobile} key={info.id} disablePadding>
               {/* <ListItemButton> */}
               <ListItemAvatar>
                 <ListItemText
@@ -64,6 +45,21 @@ export default function MusicItem({ infos, match }) {
               </ListItemAvatar>
               <ListItemText primary={info.title} secondary={info.artist} />
               {/* </ListItemButton> */}
+              <Checkbox
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite />}
+                edge="end"
+                disabled={checked.length === 3 && checked.indexOf(info) === -1}
+                checked={checked.indexOf(info) !== -1}
+                onChange={() => handleChange(info)}
+                sx={{
+                  color: '#7655D9',
+                  marginRight: '10px',
+                  '&.Mui-checked': {
+                    color: '#8b63ff'
+                  }
+                }}
+              />
             </ListItem>
           ))}
         </List>
