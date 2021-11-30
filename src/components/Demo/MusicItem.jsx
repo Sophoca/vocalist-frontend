@@ -32,7 +32,7 @@ export default function MusicItem({ infos, match }) {
 
   return (
     <>
-      <Box className="box">
+      <Box className="box" style={{ padding: 0 }}>
         <List dense={isMobile} sx={{ width: '100%', maxWidth: 700, bgcolor: 'background.paper' }}>
           {infos.map(info => (
             <ListItem dense={isMobile} key={info.id} disablePadding>

@@ -26,7 +26,7 @@ const Result = ({ location, history }) => {
   console.log(data);
   return (
     <div style={{ width: '100%', margin: '20px 0' }}>
-      <Box className="box" style={{ flexDirection: 'row' }}>
+      <Box className="box">
         {data.map((el, idx) => (
           <ClusterCard key={idx} checked={checked[idx]} clusterInfo={el.body}></ClusterCard>
         ))}

@@ -1,9 +1,9 @@
 .box {
   display: flex;
-  gap: 20px;
   flex-direction: column;
+  padding: 10px;
+  gap: 20px;
   justify-content: center;
-  align-items: center;
   border: 1px dashed grey;
   border-radius: 5px;
   width: 100%;
@@ -11,6 +11,6 @@
 }
 @media only screen and (min-width: 800px) {
   .box {
-    padding: 20px;
+    flex-direction: row;
   }
 }

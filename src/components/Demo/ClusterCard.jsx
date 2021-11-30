@@ -14,7 +14,7 @@ export default function ClusterCard({ checked, clusterInfo }) {
           <Typography sx={{ fontSize: 12 }} color="text.secondary" gutterBottom>
             # 노래수
           </Typography>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {`${checked.artist}의 ${checked.title} 좋아하시는구나?`}
           </Typography>
         </CardContent>
