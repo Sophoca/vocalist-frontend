@@ -20,6 +20,7 @@ const Container = styled.div`
   // padding: ${isMobile ? '10px' : '20px 30px'};
   width: 100%;
   padding: 0 30px;
+  height: 100%;
   @media only screen and (min-width: 1180px) {
     width: 1180px;
     margin: 0 auto;

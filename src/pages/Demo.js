@@ -8,6 +8,7 @@ import Result from 'components/Demo/Result';
 
 const Container = styled.div`
   // width: 100%;
+  height: 100%;
   padding: 0 30px;
   padding-top: ${isMobile ? '48px' : '65px'};
 `;
