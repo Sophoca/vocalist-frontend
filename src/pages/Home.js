@@ -25,7 +25,7 @@ SwiperCore.use([Mousewheel, Pagination]);
 
 const Background = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: white;
 `;
 
