@@ -25,7 +25,7 @@ const Result = ({ location, history }) => {
   if (!data) return null;
   console.log(data);
   return (
-    <>
+    <div style={{ width: '100%', margin: '20px 0' }}>
       <Box className="box" style={{ flexDirection: 'row' }}>
         {data.map((el, idx) => (
           <ClusterCard key={idx} checked={checked[idx]} clusterInfo={el.body}></ClusterCard>
@@ -34,7 +34,7 @@ const Result = ({ location, history }) => {
       <div style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
         <PurpleButton onClick={() => history.goBack()}>Back</PurpleButton>
       </div>
-    </>
+    </div>
   );
 };
 
