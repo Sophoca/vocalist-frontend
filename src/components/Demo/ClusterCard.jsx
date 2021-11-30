@@ -3,7 +3,7 @@ import { Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/m
 import { useState } from 'react';
 import MusicList from 'components/Playlist/MusicList';
 
-export default function ClusterCard({ clusterInfo }) {
+export default function ClusterCard({ checked, clusterInfo }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ export default function ClusterCard({ clusterInfo }) {
             # 노래수
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-            제목 뭐로하지?
+            {`${checked.artist}의 ${checked.title} 좋아하시는구나?`}
           </Typography>
         </CardContent>
       </CardActionArea>

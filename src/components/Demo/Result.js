@@ -4,12 +4,13 @@ import useAsync from 'useAsync';
 import { MusicApi } from 'api';
 import ClusterCard from './ClusterCard';
 import PurpleButton from 'components/PurpleButton';
+import { Box } from '@mui/system';
 
-const Result = ({ match, history }) => {
-  const cId = match.params.id.split(',');
+const Result = ({ location, history }) => {
+  const checked = location.state.checked;
   async function fetchData() {
     try {
-      const responses = await Promise.all(cId.map(el => MusicApi.getCluster(el)));
+      const responses = await Promise.all(checked.map(el => MusicApi.getCluster(el.cluster)));
       return responses.map(response => response.data);
     } catch (err) {
       console.error(err);
@@ -25,20 +26,14 @@ const Result = ({ match, history }) => {
   console.log(data);
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          maxHeight: '80vh',
-          overflow: 'scroll',
-          border: '1px solid black'
-        }}
-      >
+      <Box className="box" style={{ flexDirection: 'row' }}>
         {data.map((el, idx) => (
-          <ClusterCard key={idx} clusterInfo={el.body}></ClusterCard>
+          <ClusterCard key={idx} checked={checked[idx]} clusterInfo={el.body}></ClusterCard>
         ))}
+      </Box>
+      <div style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
+        <PurpleButton onClick={() => history.goBack()}>Back</PurpleButton>
       </div>
-      <PurpleButton onClick={() => history.goBack()}>Back</PurpleButton>
     </>
   );
 };

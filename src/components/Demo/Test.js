@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Button, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 
 import { CurationApi, DemoApi } from 'api';
-import StyledLink from 'components/StyledLink';
 import useAsync from 'useAsync';
-import PurpleButton from 'components/PurpleButton';
+
 import MusicItem from './MusicItem';
 
 function shuffle(array) {
@@ -24,29 +22,19 @@ const Test = ({ match }) => {
 
   const [state, refetch] = useAsync(fetchData, []);
   const { loading, data, error } = state;
-  const [id, setId] = useState([]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>error</div>;
   if (!data) return null;
 
-  const musicList = shuffle(data.body).slice(0, 50);
-  console.log(musicList, match, id.length);
+  const musicList = shuffle(data.body)
+    .filter((el, idx, callback) => idx === callback.findIndex(t => t.cluster === el.cluster)) // 중복 클러스터 제거
+    .slice(0, 50); // 50개 추출
 
   return (
-    <div style={{ width: '100%' }}>
-      <div>Demo</div>
-      <div style={{ height: '600px', overflow: 'auto', border: '1px solid black' }}>
-        <MusicItem infos={musicList} />
-      </div>
-
-      <PurpleButton
-        disabled={id.length === 0}
-        component={StyledLink}
-        to={`${match.url}/${id.toString()}`}
-      >
-        결과확인
-      </PurpleButton>
+    <div style={{ width: '100%', margin: '20px 0' }}>
+      <div>최대 3개의 노래를 골라보세요!</div>
+      <MusicItem infos={musicList} match={match} />
     </div>
   );
 };
