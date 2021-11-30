@@ -25,6 +25,11 @@ html {
   -webkit-transform: translateZ(0);
 }
 
+root {
+  position: fixed;
+  overflow: hidden;
+}
+
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 body,
