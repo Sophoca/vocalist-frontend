@@ -203,7 +203,12 @@ const Home = ({ isMobile }) => {
               <LogoContainer>
                 <img src={cover} alt="logo" />
               </LogoContainer>
-              <WhiteButton variant="outlined" onClick={() => alert('아직 준비 중인 기능입니다!')}>
+              <WhiteButton
+                variant="outlined"
+                onClick={() =>
+                  window.open('https://kr.object.ncloudstorage.com/vloom-android/vloom.apk')
+                }
+              >
                 Download
               </WhiteButton>
             </MainContainer>
