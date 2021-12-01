@@ -26,7 +26,7 @@ const Result = ({ location, history }) => {
   console.log(data);
   return (
     <div
-      className="flex column gap10"
+      className="flex column gap20"
       style={{ width: '100%', height: '100%', padding: '20px 0', flexWrap: 'nowrap' }}
     >
       <Box
