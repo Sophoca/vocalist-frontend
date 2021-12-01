@@ -32,8 +32,8 @@ const Test = ({ match }) => {
     .slice(0, 50); // 50개 추출
 
   return (
-    <div style={{ width: '100%', margin: '20px 0' }}>
-      <div>최대 3개의 노래를 골라보세요!</div>
+    <div className="flex column" style={{ width: '100%', height: '100%', flexWrap: 'nowrap' }}>
+      <h3>최대 3개의 노래를 골라보세요!</h3>
       <MusicItem infos={musicList} match={match} />
     </div>
   );

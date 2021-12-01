@@ -8,7 +8,7 @@ import Result from 'components/Demo/Result';
 
 const Container = styled.div`
   // width: 100%;
-  height: 100%;
+  height: 100vh;
   padding-top: ${isMobile ? '48px' : '65px'};
   @media only screen and (min-width: 800px) {
     padding-left: 30px;

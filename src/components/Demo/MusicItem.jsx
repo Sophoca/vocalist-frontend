@@ -32,7 +32,7 @@ export default function MusicItem({ infos, match }) {
 
   return (
     <>
-      <Box className="box" style={{ padding: 0 }}>
+      <Box className="box" style={{ padding: 0, flexShrink: 1 }}>
         <List dense={isMobile} sx={{ width: '100%', maxWidth: 700, bgcolor: 'background.paper' }}>
           {infos.map(info => (
             <ListItem dense={isMobile} key={info.id} disablePadding>
@@ -64,7 +64,7 @@ export default function MusicItem({ infos, match }) {
           ))}
         </List>
       </Box>
-      <div style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
+      <div style={{ width: '100%', textAlign: 'center', margin: '20px 0', flexShrink: 0 }}>
         <PurpleButton
           disabled={Object.keys(checked).length === 0}
           component={StyledLink}

@@ -176,14 +176,6 @@ const Home = ({ isMobile }) => {
                 <img src={cover} alt="logo" />
               </LogoContainer>
               <DownloadButton />
-              {/* <WhiteButton
-                variant="outlined"
-                onClick={() =>
-                  window.open('https://kr.object.ncloudstorage.com/vloom-android/vloom.apk')
-                }
-              >
-                Download
-              </WhiteButton> */}
             </MainContainer>
           </Container>
         </SwiperSlide>

@@ -25,13 +25,24 @@ const Result = ({ location, history }) => {
   if (!data) return null;
   console.log(data);
   return (
-    <div style={{ width: '100%', margin: '20px 0' }}>
-      <Box className="box">
+    <div
+      className="flex column gap10"
+      style={{ width: '100%', height: '100%', padding: '20px 0', flexWrap: 'nowrap' }}
+    >
+      <Box
+        className="box"
+        style={{ flexShrink: 1, flexGrow: 1, justifyContent: 'flex-start', gap: 10 }}
+      >
         {data.map((el, idx) => (
-          <ClusterCard key={idx} checked={checked[idx]} clusterInfo={el.body}></ClusterCard>
+          <ClusterCard
+            key={idx}
+            checked={checked[idx]}
+            clusterInfo={el.body}
+            style={{ flex: 1 }}
+          ></ClusterCard>
         ))}
       </Box>
-      <div style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
+      <div style={{ width: '100%', textAlign: 'center', flexShrink: 0, flexGrow: 0 }}>
         <PurpleButton onClick={() => history.goBack()}>Back</PurpleButton>
       </div>
     </div>

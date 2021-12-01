@@ -1,13 +1,23 @@
-import React from 'react';
-import { Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { isMobile } from 'react-device-detect';
+import { Card, CardContent, Collapse, Typography, CardActionArea, IconButton } from '@mui/material';
+import { ArrowDropDown } from '@mui/icons-material';
+
 import MusicList from 'components/Playlist/MusicList';
 
 export default function ClusterCard({ checked, clusterInfo }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <Card>
+    <Card
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        flex: isMobile ? 'undefined' : 1,
+        flexWrap: 'nowrap',
+        flexShrink: 0
+      }}
+    >
       <CardActionArea onClick={() => setOpen(!open)}>
         {/* <CardMedia component="img" height="140" image={image} alt="curation cover img" /> */}
         <CardContent>
@@ -19,7 +29,9 @@ export default function ClusterCard({ checked, clusterInfo }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      {open && <MusicList list={clusterInfo} />}
+      <Collapse in={open} sx={{ overflow: 'auto' }}>
+        <MusicList list={clusterInfo} />
+      </Collapse>
     </Card>
   );
 }
