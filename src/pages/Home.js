@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
+
 import styled from 'styled-components';
 
 // Core modules imports are same as usual
@@ -20,6 +20,7 @@ import mockup from 'images/mockup.png';
 import logoWhite from 'images/logo_white.png';
 import cover from 'images/cover.svg';
 import logo from 'images/logo.svg';
+import DownloadButton from 'components/Home/DownloadButton';
 
 SwiperCore.use([Mousewheel, Pagination]);
 
@@ -105,21 +106,6 @@ const CaseItem = styled.div`
   }
 `;
 
-const WhiteButton = styled(Button)`
-  color: white !important;
-  border: 2px solid white !important;
-  width: 160px !important;
-  font-size: 14px !important;
-  margin: 0 auto !important;
-  padding: 5px !important;
-  @media only screen and (min-width: 800px) {
-    font-size: 18px !important;
-    width: 220px !important;
-    margin: 0 !important;
-    padding: 10px !important;
-  } ;
-`;
-
 const PurpleButton = styled(Button)`
   color: white !important;
   background-color: #8b63ff !important;
@@ -151,8 +137,6 @@ const Content2 = styled.div`
   font-size: 0.7em;
   width: 200px;
   height: 100%;
-  // display: table-cell;
-  // vertical-align: middle;
 `;
 const ImageContainer = styled.div`
   width: 100px;
@@ -185,32 +169,21 @@ const Home = ({ isMobile }) => {
           paddingTop: isMobile ? '48px' : '65px'
         }}
       >
-        <SwiperSlide
-          className="my-swiper-slide"
-          style={
-            {
-              // background: `url(${mockupLogo})`,
-              // backgroundColor: '#8b63ff',
-              // backgroundRepeat: 'no-repeat',
-              // backgroundPosition: '80% center',
-              // backgroundSize: '18%'
-            }
-          }
-        >
+        <SwiperSlide className="my-swiper-slide">
           <Container>
             <MainContainer className="text-container">
-              {/* <div style={{ fontSize: '2em', color: 'white' }}>Blooming Your Voice!</div> */}
               <LogoContainer>
                 <img src={cover} alt="logo" />
               </LogoContainer>
-              <WhiteButton
+              <DownloadButton />
+              {/* <WhiteButton
                 variant="outlined"
                 onClick={() =>
                   window.open('https://kr.object.ncloudstorage.com/vloom-android/vloom.apk')
                 }
               >
                 Download
-              </WhiteButton>
+              </WhiteButton> */}
             </MainContainer>
           </Container>
         </SwiperSlide>
@@ -229,7 +202,6 @@ const Home = ({ isMobile }) => {
                   막상 불러보니 <b>내 음역대와 맞지 않아 부르기 어려웠던 적</b> 있으신가요?
                 </Content>
               </div>
-              {/* <img src={logo} alt="logo" style={{ display: 'block' }} /> */}
             </MainContainer>
           </Container>
         </SwiperSlide>
