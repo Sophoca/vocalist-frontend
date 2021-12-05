@@ -7,7 +7,7 @@ export default function CurationList({ clist, setCId }) {
   return (
     <div className="container">
       <h2>Curation List</h2>
-      <Box className="box" component="div">
+      <Box className="box" component="div" style={{ flexDirection: 'column' }}>
         {clist.map(el => (
           <CurationCard info={el} setCId={setCId} />
         ))}

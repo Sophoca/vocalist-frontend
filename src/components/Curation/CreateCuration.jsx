@@ -68,7 +68,13 @@ export default function CreateCuration({ clist, musicLists, refetch }) {
   return (
     <div className="container">
       <h2>Create Curation</h2>
-      <Box className="box" component="form" onSubmit={handleSubmit} noValidate>
+      <Box
+        className="box"
+        component="form"
+        onSubmit={handleSubmit}
+        noValidate
+        style={{ flexDirection: 'column' }}
+      >
         <TextField
           name="title"
           label="Title"

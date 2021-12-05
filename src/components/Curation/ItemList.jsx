@@ -63,8 +63,8 @@ export default function ItemList({ curation_id, musicLists }) {
   return (
     <div className="container">
       <h2>{`Modify #${curation_id} Curation`}</h2>
-      <Box className="box" component="div">
-        <Box className="box" component="div">
+      <Box className="box" component="div" style={{ flexDirection: 'column' }}>
+        <Box className="box" component="div" style={{ flexDirection: 'column' }}>
           <h3 style={{ margin: 0 }}>Add Items</h3>
           <AutoComplete
             musicLists={restMusicList}
