@@ -7,6 +7,7 @@ const Privacy = () => {
   async function fetchData() {
     try {
       const responses = await Promise.all([PrivacyApi.getOne(), PrivacyApi.getTwo()])
+      return responses.map(response => response.data);
     } catch (err) {
       console.error(err)
     }
@@ -18,9 +19,10 @@ const Privacy = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>error</div>;
   if (!data) return null;
+  console.log(data)
 
   return (
-    <div>
+    <div style={{ marginTop: '68px' }}>
       <h3>{data[0].body.title}</h3>
       <p>{data[0].body.content}</p>
       <h3>{data[1].body.title}</h3>
