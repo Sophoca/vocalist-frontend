@@ -24,9 +24,9 @@ const Privacy = () => {
   return (
     <div style={{ marginTop: '68px' }}>
       <h3>{data[0].body.title}</h3>
-      <p>{data[0].body.content}</p>
+      <p className="preline">{data[0].body.content}</p>
       <h3>{data[1].body.title}</h3>
-      <p>{data[1].body.content}</p>
+      <p className="preline">{data[1].body.content}</p>
     </div>
   );
 }
