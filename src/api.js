@@ -141,3 +141,12 @@ export const DemoApi = {
       params: { id: list_id }
     })
 };
+
+export const PrivacyApi = {
+  getOne: () => api.get('/policy', {
+    params: {id: 0}
+  }),
+  getTwo: () => api.get('/policy', {
+    params: {id: 1}
+  })
+};

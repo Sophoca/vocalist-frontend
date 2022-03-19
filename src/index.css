@@ -228,3 +228,7 @@ code {
     height: auto;
   }
 }
+
+.preline {
+  white-space: pre-line;
+}
